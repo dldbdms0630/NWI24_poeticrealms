@@ -80,17 +80,17 @@ public class QuizCalc : MonoBehaviour
         if(freeSpiritScore > nurturerScore && freeSpiritScore > visionaryScore)
         {
             Debug.Log("FREE SPIRIT HOMIEEE E");
-            //SceneManager.LoadScene("FreeSpirit");
+            SceneManager.LoadScene("Freespirits");
         }
         else if (nurturerScore > freeSpiritScore && nurturerScore > visionaryScore)
         {
             Debug.Log("NURTERUER ");
-            //SceneManager.LoadScene("Nurturer");
+            SceneManager.LoadScene("Nurturers");
         }
         else
         {
             Debug.Log("YOURE A VISONARY aaaaaaaaaaaaa ");
-            //SceneManager.LoadScene("Visionary");
+            SceneManager.LoadScene("Visionaries");
         }
 
         Debug.Log("load the scenes now lmao");
