@@ -63,6 +63,7 @@ public class QuizCalc : MonoBehaviour
     {
         int totalScore = freeSpiritScore + nurturerScore + visionaryScore;
 
+        /*
         float FSPercentage = (float) freeSpiritScore * 100 / totalScore;
         float nurturerPercentage = (float) nurturerScore * 100 / totalScore;
         float visionaryPercentage = (100f - (FSPercentage + nurturerPercentage));
@@ -70,6 +71,8 @@ public class QuizCalc : MonoBehaviour
         Debug.Log("RAHHH FS: " + (int)System.Math.Round(FSPercentage, 0) + "% NURTURER: " +
             (int)System.Math.Round(nurturerPercentage, 0) + "% VISIONARY: " +
             (int)System.Math.Round(visionaryPercentage, 0) + "%");
+        */
+
         Debug.Log("fs: " + freeSpiritScore + " nur: " + nurturerScore + " vis: " + visionaryScore);
 
         //currIndex++;
