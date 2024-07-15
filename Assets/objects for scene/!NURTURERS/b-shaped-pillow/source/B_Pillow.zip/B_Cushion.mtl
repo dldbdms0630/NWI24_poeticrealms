@@ -1,0 +1,18 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 28.07.2015 14:21:28
+
+newmtl _B_Cushionwire_087225198_FRONT
+	Ns 0.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.3412 0.8824 0.7765
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka AS2_cloth_61.jpg
+	map_Kd AS2_cloth_61.jpg
+	map_bump -bm 0.3000 AS2_cloth_61_bump.jpg
+	bump -bm 0.3000 AS2_cloth_61_bump.jpg
