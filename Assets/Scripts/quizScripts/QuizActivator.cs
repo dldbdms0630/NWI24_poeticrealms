@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Loading;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class QuizActivator : MonoBehaviour
@@ -9,6 +11,7 @@ public class QuizActivator : MonoBehaviour
 
     private int numQuestions;
     private int questionIndex;
+    private int sceneToLoad;
     private Answers[] quizAnswers;
 
     enum Answers
@@ -28,13 +31,22 @@ public class QuizActivator : MonoBehaviour
     public GameObject about;
     public GameObject options;
 
-    //do allow USB debugging 
+    [Header("Poem Loading Shenanigans")]
+    public GameObject loading;
+    public GameObject fs_text;
+    public GameObject nur_text;
+    public GameObject vis_text;
 
     // Start is called before the first frame update
     void Start()
     {
         numQuestions = questionSets.Length;
         quizAnswers = new Answers[numQuestions];
+
+        loading.SetActive(false);
+        fs_text.SetActive(false);
+        nur_text.SetActive(false);
+        vis_text.SetActive(false);
 
         BackToStart();
 
@@ -221,10 +233,50 @@ public class QuizActivator : MonoBehaviour
 
     public void QuizEnd()
     {
-        calculateHomie.quizEnd();
+        sceneToLoad = calculateHomie.quizEnd();
         for (int i = 0; i < numQuestions; i++)
         {
             questionSets[i].SetActive(false);
+        }
+
+
+        //set the poem button active
+        loading.SetActive(true);
+        if(sceneToLoad == 1)
+        {
+            fs_text.SetActive(true);
+        }
+        else if(sceneToLoad == 2)
+        {
+            nur_text.SetActive(true);
+        }
+        else if(sceneToLoad == 3)
+        {
+            vis_text.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("something went wrong homie: here's scenetoload value: " + sceneToLoad);
+        }
+    }
+
+    public void LoadPoemScene()
+    {
+        if (sceneToLoad == 1)
+        {
+            SceneManager.LoadScene("Freespirits");
+        }
+        else if (sceneToLoad == 2)
+        {
+            SceneManager.LoadScene("Nurturers");
+        }
+        else if (sceneToLoad == 3)
+        {
+            SceneManager.LoadScene("Visionaries");
+        }
+        else
+        {
+            Debug.Log("something went wrong homie");
         }
     }
 
