@@ -15,7 +15,8 @@ public class ChangeTextOnTrigger : MonoBehaviour
     public string newText = "New Text DUMMY";
 
     private InputData inputData; 
-    private bool isChanged = false;
+    private bool isChanged = false, isGazed = false;
+
 
 
     private void Start()
@@ -28,7 +29,7 @@ public class ChangeTextOnTrigger : MonoBehaviour
 
     void Update()
     {
-        if (inputData.rightController.TryGetFeatureValue(CommonUsages.primaryButton, out bool Abutton))
+        if (isGazed && inputData.rightController.TryGetFeatureValue(CommonUsages.primaryButton, out bool Abutton))
         {
             if (!isChanged && Abutton)
             ChangeText();
@@ -39,5 +40,15 @@ public class ChangeTextOnTrigger : MonoBehaviour
     {
         textObject.text = newText;
         isChanged = true;
+    }
+
+    public void EnableGaze() 
+    {
+        isGazed = true;
+    }
+
+    public void DisableGaze() 
+    {
+        isGazed = false;
     }
 }
