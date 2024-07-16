@@ -81,6 +81,10 @@ PrefabInstance:
       value: Disco Ball 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 80917c24e75aa4bb79356194bbf9ad20, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 80917c24e75aa4bb79356194bbf9ad20, type: 3}
       propertyPath: m_TagString
       value: discoball
       objectReference: {fileID: 0}
@@ -97,6 +101,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 80917c24e75aa4bb79356194bbf9ad20, type: 3}
       insertIndex: -1
       addedObject: {fileID: 483123027652894965}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 80917c24e75aa4bb79356194bbf9ad20, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4503107029461317805}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 80917c24e75aa4bb79356194bbf9ad20, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4955552541869033865}
   m_SourcePrefab: {fileID: 100100000, guid: 80917c24e75aa4bb79356194bbf9ad20, type: 3}
 --- !u!1 &2485791123545481991 stripped
 GameObject:
@@ -234,3 +244,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSpinSpeed: 6
   maxSpinSpeed: 16
+--- !u!114 &4503107029461317805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2485791123545481991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 940cf113db309de4680b82ff1649820d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isActivable: 0
+  _exitDelay: 0
+  OnGazeEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4955552541869033865}
+        m_TargetAssemblyTypeName: DiscoBallGaze, Assembly-CSharp
+        m_MethodName: StartBobbing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnGazeStay:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGazeExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4955552541869033865}
+        m_TargetAssemblyTypeName: DiscoBallGaze, Assembly-CSharp
+        m_MethodName: StopBobbing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnGazeActivated:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGazeToggle:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &4955552541869033865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2485791123545481991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fa43bfde0f24a0a84e26ddc63563d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
