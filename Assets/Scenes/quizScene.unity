@@ -6490,6 +6490,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 674688245}
   m_CullTransparentMesh: 1
+--- !u!1 &703992969
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 703992970}
+  - component: {fileID: 703992971}
+  m_Layer: 0
+  m_Name: testingColorChanger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &703992970
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703992969}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 963565049}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &703992971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703992969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48db90165f398054281fff4afd255a69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changer: {fileID: 1229977360}
 --- !u!1 &730447609
 GameObject:
   m_ObjectHideFlags: 0
@@ -8644,6 +8689,7 @@ Transform:
   m_Children:
   - {fileID: 346115567}
   - {fileID: 1054532344}
+  - {fileID: 703992970}
   - {fileID: 1229977359}
   - {fileID: 982561453}
   m_Father: {fileID: 0}
@@ -9977,7 +10023,7 @@ GameObject:
   - component: {fileID: 1054532344}
   - component: {fileID: 1054532343}
   m_Layer: 0
-  m_Name: Quiz Manager
+  m_Name: Quiz Calc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10762,7 +10808,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1229977359
 Transform:
   m_ObjectHideFlags: 0
@@ -10790,7 +10836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ec6c18ca106d24084b2a23a7147e91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  background: {fileID: 2100000, guid: ba45465a1b3de9940b0d6ccd866fbeed, type: 2}
+  skyboxMaterial: {fileID: 2100000, guid: ba45465a1b3de9940b0d6ccd866fbeed, type: 2}
 --- !u!1 &1251224856
 GameObject:
   m_ObjectHideFlags: 0
