@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class testingSphere : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public GameObject homieSphere;
+    private Rigidbody rb;
 
     void Start()
     {
-        homieSphere.GetComponent<Rigidbody>().isKinematic = true;
+        rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.gameObject.CompareTag("PlayerHand"))
+        {
+            Debug.Log("COLLISION DETECT");
+            // Apply a force when colliding with the player's hand
+            Vector3 forceDirection = collision.contacts[0].point - transform.position;
+            forceDirection = -forceDirection.normalized;
+            rb.AddForce(forceDirection * 10, ForceMode.Impulse);
+        }
     }
 }
