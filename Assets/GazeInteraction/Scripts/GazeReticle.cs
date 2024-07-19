@@ -30,6 +30,10 @@ namespace TS.GazeInteraction
 
         private void Start()
         {
+            // YL added to disable visual component of reticle 
+            _canvas.gameObject.SetActive(false);
+            _imageProgress.gameObject.SetActive(false);
+
             _canvas.transform.localScale = Vector3.one * _scale;
         }
         private void Update()
