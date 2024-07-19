@@ -7,6 +7,7 @@ TagManager:
   - Anchor
   - discoball
   - discoball2
+  - PlayerHand
   layers:
   - Default
   - TransparentFX
