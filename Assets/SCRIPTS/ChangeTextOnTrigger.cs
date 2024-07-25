@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 
@@ -14,24 +15,23 @@ public class ChangeTextOnTrigger : MonoBehaviour
     public TextMeshPro textObject;
     // public TextMeshPro signalText; // for the "Press A to advance" message when player doesn't do anything for 3sec after the audio stops 
 
-    // public string newText = "New Text DUMMY";
     public string[] newTexts = {"New Text A", "New Text B", "New Text C", "New Text D"};
     public AudioClip[] audioClips; // Array of audio clips
+    public NurtObjManager nurtObjManager;
 
     private AudioSource audioSource; // Audio source to play the clips
     private int textIdx = 0;
 
     private InputData inputData;
     private bool isStanzaDone = false, isGazed = false;
+    private string sceneName;
 
 
     private void Start()
     {
         inputData = GetComponent<InputData>();
-        audioSource = GetComponent<AudioSource>(); // Get the audio source component
-
-        // Debug.Log("Started inputData: " + inputData);
-        // textObject = GameObject.Find("texts/poem1").GetComponent<TMP_Text>(); // added as rec
+        audioSource = GetComponent<AudioSource>();
+        sceneName = SceneManager.GetActiveScene().name;
     }
 
     void Update()
@@ -49,6 +49,15 @@ public class ChangeTextOnTrigger : MonoBehaviour
             textObject.text = newTexts[textIdx];
             audioSource.clip = audioClips[textIdx];
             audioSource.Play();
+
+            if (sceneName == "Nurturers") {
+                if (newTexts[textIdx] == "Dreamed of you last night.")
+                    nurtObjManager.DisableTitle();
+                
+                else if (newTexts[textIdx] == "We ran away from robots—those brainsick bots—") 
+                    nurtObjManager.EnableTV();
+                
+            }
             textIdx++;
         }
         else isStanzaDone = true;
