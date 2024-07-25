@@ -5,18 +5,19 @@ using UnityEngine;
 public class CoinGrab : MonoBehaviour
 {
     public bool isGrabbed = false;
-    private Transform originalParent;
-    private Collider coinCollider;
+    //private Transform originalParent;
+    //private Collider coinCollider;
     private Rigidbody rb;
     public GameObject particles;
-    public AudioClip sound;
+    public AudioSource sound;
     
     void Start()
     {
-        coinCollider = GetComponent<Collider>();
-        originalParent = transform.parent;
+        //coinCollider = GetComponent<Collider>();
+        //originalParent = transform.parent;
         rb = GetComponent<Rigidbody>();
         particles.SetActive(false);
+        sound = GetComponent<AudioSource>();
     }
 
     
@@ -27,6 +28,7 @@ public class CoinGrab : MonoBehaviour
         {
             Debug.Log("tossed into the well!!");
             particles.SetActive(true);
+            sound.Play();
         }
     }
 }
