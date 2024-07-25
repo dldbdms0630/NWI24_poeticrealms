@@ -8,6 +8,7 @@ TagManager:
   - discoball
   - discoball2
   - PlayerHand
+  - Well
   layers:
   - Default
   - TransparentFX
