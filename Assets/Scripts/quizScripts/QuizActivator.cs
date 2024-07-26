@@ -28,8 +28,8 @@ public class QuizActivator : MonoBehaviour
 
     [Header("Question Set")]
     public GameObject[] questionSets;
-    public GameObject about;
-    public GameObject options;
+    //public GameObject about;
+    ///public GameObject options;
 
     [Header("Poem Loading Shenanigans")]
     public GameObject loading;
@@ -48,7 +48,7 @@ public class QuizActivator : MonoBehaviour
         nur_text.SetActive(false);
         vis_text.SetActive(false);
 
-        BackToStart();
+        //BackToStart();
 
     }
 
@@ -119,7 +119,7 @@ public class QuizActivator : MonoBehaviour
         ActivatorQuestionEnd();
     }
 
-    public void SelectAbout()
+    /*public void SelectAbout()
     {
         for (int i = 0; i < numQuestions; i++)
         {
@@ -147,6 +147,7 @@ public class QuizActivator : MonoBehaviour
         questionIndex = 0;
         loadQuestion();
     }
+    */
 
     public void BackButton()
     {
