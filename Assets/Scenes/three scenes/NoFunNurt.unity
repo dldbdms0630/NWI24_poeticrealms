@@ -5820,7 +5820,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: I wake up,
+  m_text: I wake up, my hand casted in the shape of us.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ce63de46fd9b92145b12d99d9b4e4a9f, type: 2}
   m_sharedMaterial: {fileID: 6845720557509482114, guid: ce63de46fd9b92145b12d99d9b4e4a9f, type: 2}
@@ -7043,7 +7043,19 @@ MonoBehaviour:
   handPortal: {fileID: 1890233157}
   handText: {fileID: 939762222}
   handLight: {fileID: 599942463}
+  arcLightMaterial: {fileID: 0}
   handVideo: {fileID: 1583066168}
+  firstWonderText: {fileID: 0}
+  wonderParticles: {fileID: 0}
+  computerPortal: {fileID: 0}
+  computerScreen: {fileID: 0}
+  computerText: {fileID: 0}
+  compatibilityMat: {fileID: 0}
+  blackMat: {fileID: 0}
+  computerLight: {fileID: 0}
+  secondToLastText: {fileID: 0}
+  smileyLight: {fileID: 0}
+  nurtBgMusic: {fileID: 0}
   finalBgMusic: {fileID: 0}
 --- !u!1 &1526715593
 GameObject:
