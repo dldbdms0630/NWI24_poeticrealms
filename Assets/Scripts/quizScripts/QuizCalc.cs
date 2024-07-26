@@ -80,7 +80,7 @@ public class QuizCalc : MonoBehaviour
 
     public int quizEnd()
     {
-        if(visionaryScore > nurturerScore && visionaryScore > freeSpiritScore)
+        /*if(visionaryScore > nurturerScore && visionaryScore > freeSpiritScore)
         {
             Debug.Log("YOURE A VISONARY aaaaaaaaaaaaa ");
             //SceneManager.LoadScene("Visionaries");
@@ -98,7 +98,9 @@ public class QuizCalc : MonoBehaviour
             //SceneManager.LoadScene("Freespirits");
             return 1;
         }
+        */
 
+        return 2;
         Debug.Log("load the scenes now lmao");
     }
 

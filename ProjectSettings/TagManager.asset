@@ -9,6 +9,8 @@ TagManager:
   - discoball2
   - PlayerHand
   - Well
+  - SpawnCollider
+  - FinalPortal
   layers:
   - Default
   - TransparentFX
