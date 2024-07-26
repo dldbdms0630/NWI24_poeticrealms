@@ -13,12 +13,14 @@ public class CoinRespawn : MonoBehaviour
     private bool spawned;
     public AudioSource spawnSound;
     public GameObject toSpawn;
+    private Rigidbody rb;
 
     void Start()
     {
         coinGrabber = GetComponent<CoinGrab>();
         spawned = false;
         spawnSound = GetComponent<AudioSource>();
+        rb = toSpawn.GetComponent<Rigidbody>();
         toSpawn.SetActive(false);
         //toSpawn.SetActive(true);
     }
@@ -36,11 +38,13 @@ public class CoinRespawn : MonoBehaviour
     {
         if (!spawned)
         {
+            spawned = true;
             toSpawn.SetActive(true);
             Debug.Log("spawning!!");
             spawnSound.Play();
             //Respawn();
-            spawned = true;
+            //rb.isKinematic = false;
+            //rb.useGravity = false;
         }
     }
 

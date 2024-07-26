@@ -10,6 +10,7 @@ TagManager:
   - PlayerHand
   - Well
   - SpawnCollider
+  - FinalPortal
   layers:
   - Default
   - TransparentFX

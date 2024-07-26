@@ -20,8 +20,6 @@ public class CoinGrab : MonoBehaviour
         sound = GetComponent<AudioSource>();
     }
 
-    
-
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Well") && !isGrabbed)
