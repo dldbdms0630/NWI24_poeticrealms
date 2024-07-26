@@ -110,7 +110,7 @@ public class ChangeTextOnTrigger : MonoBehaviour
                     nurtObjManager.EnableFirstWonder();
                 }
                 
-                else if (newTexts[textIdx] == "I wonder—")
+                // else if (newTexts[textIdx] == "I wonder—")
                     // nurtObjManager.EnableParticles();
 
                 else if (newTexts[textIdx] == "why do I hold you like you will slip away?") {
