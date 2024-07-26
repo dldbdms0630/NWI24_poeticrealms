@@ -33,8 +33,40 @@ public class NurtObjManager : MonoBehaviour
     public GameObject handPortal;
     public GameObject handText;
     public GameObject handLight;
+    public Material arcLightMaterial;
     public GameObject handVideo;
 
+    public GameObject firstWonderText;
+    public GameObject wonderParticles;
+
+    public GameObject computerPortal;
+    public GameObject computerScreen;
+    public GameObject computerText;
+    public Material compatibilityMat;
+    public Material blackMat;
+    public GameObject computerLight;
+
+    public GameObject secondToLastText;
+    public GameObject smileyLight;
+    public AudioSource nurtBgMusic;
+
+    private string sceneName;
+
+
+    // only for no fun nurt
+    public AudioSource finalBgMusic;
+
+    public void Awake()
+    {
+        sceneName = SceneManager.GetActiveScene().name;
+
+        if (sceneName == "Nurturers") {
+            nurtBgMusic = firstStanza.GetComponent<AudioSource>();
+
+        } else if (sceneName == "NoFunNurt") {
+            finalBgMusic = firstStanza.GetComponent<AudioSource>();
+        }
+    }
 
     public void DisableTitle()
     {
@@ -97,56 +129,84 @@ public class NurtObjManager : MonoBehaviour
     {
         handLight.SetActive(true);
         handVideo.SetActive(true);
-
     }
 
     public void EnableFirstWonder()
     {
+        handPortal.SetActive(false);
+        handText.SetActive(false);
+        firstWonderText.SetActive(true);
 
     }
 
     public void EnableParticles()
     {
-
+        wonderParticles.SetActive(true);
     }
 
     public void EnableComputerPortal()
     {
+        firstWonderText.SetActive(false);
 
+        computerPortal.SetActive(true);
+        computerText.SetActive(true);
     }
 
     public void EnableComputerEvent()
     {
-        FindObjectOfType<ChangeTextOnTrigger>().canAdvanceText = false;
+        // FindObjectOfType<ChangeTextOnTrigger>().canAdvanceText = false;
 
+        computerScreen.GetComponent<MeshRenderer> ().material = compatibilityMat;
+        computerLight.SetActive(true);
 
     }
 
     public void OnComputerScreenTouched()
     {
-        FindObjectOfType<ChangeTextOnTrigger>().canAdvanceText = true;
+        // FindObjectOfType<ChangeTextOnTrigger>().canAdvanceText = true;
     }
 
     public void EnableSecondToLast()
-    {
-
+    {   
+        computerPortal.SetActive(false);
+        computerText.SetActive(false);
+        
+        secondToLastText.SetActive(true);
     }
 
 
     public void EnableSmileyStanza()
     {
-        // get back to portal that we have disabled 
-        // turn arc light on
-        // turn "I open my lips and" text on
+        smileyLight.SetActive(true);
+        arcLightMaterial.EnableKeyword("_EMISSION");
+        arcLightMaterial.globalIlluminationFlags = MaterialGlobalIlluminationFlags.None;
 
     }
 
 
     public void GoToLastStanza()
     {
+        StartCoroutine(FadeAudioSource.StartFade(nurtBgMusic, 5, 0));
+
+        topLightMaterial.DisableKeyword("_EMISSION");
+        topLightMaterial.globalIlluminationFlags = MaterialGlobalIlluminationFlags.EmissiveIsBlack;
+        topLightMaterial.SetColor("_EmissionColor", Color.black);
+
+        arcLightMaterial.DisableKeyword("_EMISSION");
+        arcLightMaterial.globalIlluminationFlags = MaterialGlobalIlluminationFlags.EmissiveIsBlack;
+        arcLightMaterial.SetColor("_EmissionColor", Color.black);
+
+        computerScreen.GetComponent<MeshRenderer> ().material = blackMat;
+
         SceneManager.LoadScene("NoFunNurt");
     }
 
+
+    public void FadeBgMusic()
+    {
+        StartCoroutine(FadeAudioSource.StartFade(finalBgMusic, 5, 0));
+
+    }
 
 
     // public void DisableObjects()

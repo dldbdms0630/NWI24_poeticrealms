@@ -86,10 +86,10 @@ public class ChangeTextOnTrigger : MonoBehaviour
                     yield return new WaitForSeconds(1);
                     nurtObjManager.EnablePolaroidOne();
                 }
-                else if (newTexts[textIdx] == "your searching-fearless eyes, your") 
+                else if (newTexts[textIdx] == "Let 'em hear the hymns of your searching-fearless eyes,") 
                     nurtObjManager.EnablePolaroidTwo();
 
-                else if (newTexts[textIdx] == "seashells-don't-rust eyes.") {
+                else if (newTexts[textIdx] == "your seashells-don't-rust eyes.") {
                     yield return new WaitForSeconds(1);
                     nurtObjManager.EnableWindowPortal();
                 }
@@ -97,7 +97,7 @@ public class ChangeTextOnTrigger : MonoBehaviour
                 else if (newTexts[textIdx] == "Know")
                     nurtObjManager.EnableWindowVideo();
 
-                else if (newTexts[textIdx] == "at 11:11, with raw faith, with silent love—") {
+                else if (newTexts[textIdx] == "with raw faith, with silent love—") {
                     yield return new WaitForSeconds(1);
                     nurtObjManager.EnableHandPortal();
                 }
@@ -111,9 +111,9 @@ public class ChangeTextOnTrigger : MonoBehaviour
                 }
                 
                 else if (newTexts[textIdx] == "I wonder—")
-                    nurtObjManager.EnableParticles();
+                    // nurtObjManager.EnableParticles();
 
-                else if (newTexts[textIdx] == "you will slip away?") {
+                else if (newTexts[textIdx] == "why do I hold you like you will slip away?") {
                     yield return new WaitForSeconds(1);
                     nurtObjManager.EnableComputerPortal();
                 }
@@ -133,10 +133,17 @@ public class ChangeTextOnTrigger : MonoBehaviour
                 else if (newTexts[textIdx] == "So I surrender,")
                     nurtObjManager.EnableSmileyStanza();
 
-                 else if (newTexts[textIdx] == "I-see-you-in-every-single-smiley—") {
+                 else if (newTexts[textIdx] == "like I-see-you-in-every-single-smiley—") {
                     yield return new WaitForSeconds(3);
                     nurtObjManager.GoToLastStanza();
                 }
+
+            } else if (sceneName == "NoFunNurt") {
+                if (newTexts[textIdx] == "it's all you.")  {
+                    yield return new WaitForSeconds(1);
+                    nurtObjManager.FadeBgMusic();
+
+                }                  
 
             }
             textIdx++;
