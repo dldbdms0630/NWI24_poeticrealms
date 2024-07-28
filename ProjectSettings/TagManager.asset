@@ -11,6 +11,10 @@ TagManager:
   - Well
   - SpawnCollider
   - FinalPortal
+  - OptionA
+  - OptionB
+  - OptionC
+  - OptionBack
   layers:
   - Default
   - TransparentFX
