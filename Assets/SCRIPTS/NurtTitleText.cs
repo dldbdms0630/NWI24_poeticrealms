@@ -22,9 +22,9 @@ public class NurtTitleText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {  
-        if (inputData.rightController.TryGetFeatureValue(CommonUsages.primaryButton, out bool Abutton)) 
-        {
+        // if (inputData.rightController.TryGetFeatureValue(CommonUsages.primaryButton, out bool Abutton)) 
+        // {
 
-        }
+        // }
     }
 }

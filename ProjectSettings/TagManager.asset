@@ -11,6 +11,7 @@ TagManager:
   - Well
   - SpawnCollider
   - FinalPortal
+  - PlayerBody
   layers:
   - Default
   - TransparentFX

@@ -45,27 +45,6 @@ public class ChangeTextOnTrigger : MonoBehaviour
         }
     }
 
-    // void ChangeText()
-    // {
-    //     if (textIdx < newTexts.Length) {
-    //         textObject.text = newTexts[textIdx];
-    //         audioSource.clip = audioClips[textIdx];
-    //         audioSource.Play();
-
-    //         if (sceneName == "Nurturers") {
-    //             if (newTexts[textIdx] == "Dreamed of you last night.")
-    //                 nurtObjManager.DisableTitle();
-                
-    //             else if (newTexts[textIdx] == "We ran away from robots—those brainsick bots—") 
-    //                 nurtObjManager.EnableTV();
-                
-                
-    //         }
-    //         textIdx++;
-    //     }
-    //     else isStanzaDone = true;
-    // }
-
     IEnumerator ChangeText()
     {
         if (textIdx < newTexts.Length) {
