@@ -13,6 +13,7 @@ public class QuizActivator : MonoBehaviour
     private int questionIndex;
     private int sceneToLoad;
     private Answers[] quizAnswers;
+    public Animator animator;
 
     enum Answers
     {
@@ -204,7 +205,11 @@ public class QuizActivator : MonoBehaviour
         }
 
         // Update the question activation state after decrementing the index
+        animator.SetTrigger("questionFadeOut");
+
         loadQuestion();
+
+        animator.SetTrigger("questionFadeIn");
     }
 
     public void ActivatorQuestionEnd()
@@ -212,8 +217,12 @@ public class QuizActivator : MonoBehaviour
  
         calculateHomie.questionEnd();
         questionIndex++;
-        
+
+        animator.SetTrigger("questionFadeOut");
+
         loadQuestion();
+
+        animator.SetTrigger("questionFadeIn");
     }
 
     private void loadQuestion()
@@ -261,8 +270,11 @@ public class QuizActivator : MonoBehaviour
         }
     }
 
+
     public void LoadPoemScene()
     {
+        animator.SetTrigger("FadeOut");
+
         if (sceneToLoad == 1)
         {
             SceneManager.LoadScene("Freespirits");
