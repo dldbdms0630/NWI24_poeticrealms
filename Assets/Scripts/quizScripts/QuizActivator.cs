@@ -30,13 +30,19 @@ public class QuizActivator : MonoBehaviour
     [Header("Question Set")]
     public GameObject[] questionSets;
     //public GameObject about;
-    ///public GameObject options;
+    ///public GameObject options; <summary>
+    /// public GameObject options;
+    /// 
+    [Header("Portal Activator")]
+    //public PortalActivator portal;
 
     [Header("Poem Loading Shenanigans")]
     public GameObject loading;
     public GameObject fs_text;
     public GameObject nur_text;
     public GameObject vis_text;
+    public GameObject backCollider;
+    public GameObject doorSpawn;
 
     // Start is called before the first frame update
     void Start()
@@ -48,9 +54,11 @@ public class QuizActivator : MonoBehaviour
         fs_text.SetActive(false);
         nur_text.SetActive(false);
         vis_text.SetActive(false);
-
+        vis_text.SetActive(true);
+        doorSpawn.SetActive(false);
         //BackToStart();
 
+        StartCoroutine(waiter());
     }
 
     public void SelectFS()
@@ -218,11 +226,21 @@ public class QuizActivator : MonoBehaviour
         calculateHomie.questionEnd();
         questionIndex++;
 
-        animator.SetTrigger("questionFadeOut");
+        //StartCoroutine(waiter());
 
+        //StartCoroutine(loadQuestion());
         loadQuestion();
 
-        animator.SetTrigger("questionFadeIn");
+        //animator.SetTrigger("questionFadeIn");
+
+
+    }
+
+    public IEnumerator waiter()
+    {
+        Debug.Log("im corountining so hard rn");
+        yield return new WaitForSeconds(1);
+        Debug.Log("done done done");
     }
 
     private void loadQuestion()
@@ -234,16 +252,23 @@ public class QuizActivator : MonoBehaviour
         else
         {
             //sets questionIndex active 
+
+            animator.SetTrigger("questionFadeOut");
+
             for (int i = 0; i < numQuestions; i++)
             {
                 questionSets[i].SetActive(i == questionIndex);
             }
+            
+            animator.SetTrigger("questionFadeIn");
         }
     }
 
     public void QuizEnd()
     {
         sceneToLoad = calculateHomie.quizEnd();
+        
+        
         for (int i = 0; i < numQuestions; i++)
         {
             questionSets[i].SetActive(false);
@@ -268,29 +293,16 @@ public class QuizActivator : MonoBehaviour
         {
             Debug.Log("something went wrong homie: here's scenetoload value: " + sceneToLoad);
         }
+
+        backCollider.SetActive(false);
+        doorSpawn.SetActive(true);
+
     }
 
 
-    public void LoadPoemScene()
+    public int getScene()
     {
-        animator.SetTrigger("FadeOut");
-
-        if (sceneToLoad == 1)
-        {
-            SceneManager.LoadScene("Freespirits");
-        }
-        else if (sceneToLoad == 2)
-        {
-            SceneManager.LoadScene("Nurturers");
-        }
-        else if (sceneToLoad == 3)
-        {
-            SceneManager.LoadScene("Visionaries");
-        }
-        else
-        {
-            Debug.Log("something went wrong homie");
-        }
+        return sceneToLoad;
     }
 
     private void printCurrAnswers()
