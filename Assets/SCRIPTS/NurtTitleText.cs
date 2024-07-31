@@ -8,7 +8,6 @@ public class NurtTitleText : MonoBehaviour
 {
     // public GameObject title;
     public GameObject pressAToAdvance;
-    public GameObject firstSignal;
     public GameObject colliderObj;
 
     public GameObject audioObj;
@@ -25,6 +24,7 @@ public class NurtTitleText : MonoBehaviour
 
     IEnumerator WaitSeconds() {
         yield return new WaitForSeconds(3);
+        audioObj.SetActive(true);
         pressAToAdvance.SetActive(true);
     }
 
@@ -34,8 +34,6 @@ public class NurtTitleText : MonoBehaviour
         if (inputData.rightController.TryGetFeatureValue(CommonUsages.primaryButton, out bool Abutton)) 
         {
             if (Abutton) {
-                audioObj.SetActive(true);
-                firstSignal.SetActive(true); 
                 colliderObj.SetActive(true); // make sure collider only enabled after title 
             }
            

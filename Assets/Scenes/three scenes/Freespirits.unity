@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 1, g: 0.9198113, b: 0.9458368, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 3e5399bd195de7649b874f58c1b9f8a3, type: 2}
   m_HaloStrength: 0.5
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3556813, g: 0.45090201, b: 0.5734181, a: 1}
+  m_IndirectSpecularColor: {r: 0.3555703, g: 0.4507429, b: 0.5732514, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -202,7 +202,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4753629925268110876, guid: 0e9fb77be60f740bcbc1f2f2b7504e73, type: 3}
       propertyPath: m_Radius
-      value: 0.020359235
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4753629925268110876, guid: 0e9fb77be60f740bcbc1f2f2b7504e73, type: 3}
       propertyPath: m_Center.y
@@ -8674,6 +8674,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 72901696}
     m_Modifications:
+    - target: {fileID: -3265255973686812971, guid: 43e502e720bbf4c42892a61c96b6b30b, type: 3}
+      propertyPath: m_Radius
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2485791123545481991, guid: 43e502e720bbf4c42892a61c96b6b30b, type: 3}
       propertyPath: m_Name
       value: Disco Ball 1
@@ -9096,7 +9100,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4753629925268110876, guid: 0e9fb77be60f740bcbc1f2f2b7504e73, type: 3}
       propertyPath: m_Radius
-      value: 0.020433372
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4753629925268110876, guid: 0e9fb77be60f740bcbc1f2f2b7504e73, type: 3}
       propertyPath: m_Center.y
@@ -9541,7 +9545,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4753629925268110876, guid: 0e9fb77be60f740bcbc1f2f2b7504e73, type: 3}
       propertyPath: m_Radius
-      value: 0.020486863
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4753629925268110876, guid: 0e9fb77be60f740bcbc1f2f2b7504e73, type: 3}
       propertyPath: m_Center.y
@@ -9623,7 +9627,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -3265255973686812971, guid: 43e502e720bbf4c42892a61c96b6b30b, type: 3}
       propertyPath: m_Radius
-      value: 0.020208187
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -3265255973686812971, guid: 43e502e720bbf4c42892a61c96b6b30b, type: 3}
       propertyPath: m_Center.y
@@ -10106,7 +10110,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -3265255973686812971, guid: 43e502e720bbf4c42892a61c96b6b30b, type: 3}
       propertyPath: m_Radius
-      value: 0.01993945
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -3265255973686812971, guid: 43e502e720bbf4c42892a61c96b6b30b, type: 3}
       propertyPath: m_Center.y

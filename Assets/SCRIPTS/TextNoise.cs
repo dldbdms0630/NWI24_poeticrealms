@@ -6,75 +6,89 @@ using TMPro;
 public class TextNoise : MonoBehaviour
 {
     TMP_Text textMesh;
-
     Mesh mesh;
-
     Vector3[] vertices;
 
-    // Start is called before the first frame update
     void Start()
     {
         textMesh = GetComponent<TMP_Text>();
+        StartCoroutine(name);
     }
 
-    // void Update()
-    // {
-    //     textMesh.ForceMeshUpdate();
-    //     mesh = textMesh.mesh;
-    //     vertices = mesh.vertices;
+    void Update() {
 
-    //     for (int i = 0; i < vertices.Length; i++)
-    //     {
-    //         Vector3 offset = Wobble(Time.time + i);
+        textMesh.ForceMeshUpdate();
+        var textInfo = textMesh.textInfo;
+        // var vertices = textInfo.meshInfo[0].vertices; INDIVIDUAL
 
-    //         vertices[i] = vertices[i] + offset;
-    //     }
+        /* start of word-based noise */
+        for (int i = 0; i < textInfo.wordCount; i++)
+        {
+            var wordInfo = textInfo.wordInfo[i];
+            Vector3 offset = Wobble(Time.time + i);
 
-    //     mesh.vertices = vertices;
-    //     // textMesh.canvasRenderer.SetMesh(mesh);
-    //     textMesh.mesh = mesh;
+            for (int j = 0; j < wordInfo.characterCount; j++)
+            {
+                int charIndex = wordInfo.firstCharacterIndex + j;
+                var charInfo = textInfo.characterInfo[charIndex];
 
-    // }
+                if (!charInfo.isVisible)
+                    continue;
 
+                int vertexIndex = charInfo.vertexIndex;
 
-    void Update()
-{
-    textMesh.ForceMeshUpdate();
-    var textInfo = textMesh.textInfo;
-    var vertices = textInfo.meshInfo[0].vertices;
+                for (int k = 0; k < 4; k++)
+                {
+                    textInfo.meshInfo[charInfo.materialReferenceIndex].vertices[vertexIndex + k] += offset;
+                }
+            }
 
-    for (int i = 0; i < vertices.Length; i++)
-    {
-        Vector3 offset = Wobble(Time.time + i);
-        vertices[i] = vertices[i] + offset;
+            // Check for punctuation marks following the word
+        if (wordInfo.lastCharacterIndex + 1 < textInfo.characterCount)
+        {
+            var nextCharInfo = textInfo.characterInfo[wordInfo.lastCharacterIndex + 1];
+            if (nextCharInfo.character == '.' || nextCharInfo.character == ',' || nextCharInfo.character == '!' || nextCharInfo.character == '?' || nextCharInfo.character == '—')
+            {
+                Debug.Log("Detected em-dash: " + nextCharInfo.character);
+                int vertexIndex = nextCharInfo.vertexIndex;
+
+                    for (int k = 0; k < 4; k++)
+                    {
+                        textInfo.meshInfo[nextCharInfo.materialReferenceIndex].vertices[vertexIndex + k] += offset;
+                    }
+                }
+            }
+
+        }
+
+        // INDIVIDUAL
+        // for (int i = 0; i < vertices.Length; i++)
+        // {
+        //     Vector3 offset = Wobble(Time.time + i);
+        //     vertices[i] = vertices[i] + offset;
+        // }
+
+        // Update the mesh with the new vertex positions
+        textMesh.UpdateVertexData(TMP_VertexDataUpdateFlags.Vertices);
     }
 
-    // Update the mesh with the new vertex positions
-    textMesh.UpdateVertexData(TMP_VertexDataUpdateFlags.Vertices);
+    Vector2 Wobble(float time) {
+        float amplitude = 0.02f; // Adjust this value to change the height of the wave
+        float frequency = 0.1f; // Adjust this value to change the speed of the wave
+        return amplitude * new Vector2(Mathf.PerlinNoise(time * frequency, 0.0f), Mathf.PerlinNoise(0.0f, time * frequency));
+    }
 }
 
 
 
-    // Vector2 Wobble(float time) {
+
+
+
+// Vector2 Wobble(float time) {
     //     float amplitude = 0.005f; // Adjust this value to change the height of the wave
     //     float frequency = 0.1f; // Adjust this value to change the speed of the wave
     //     return amplitude * new Vector2(Mathf.Sin(time * frequency), Mathf.Cos(time * frequency));
     // }
-
-    Vector2 Wobble(float time) {
-        float amplitude = 0.005f; // Adjust this value to change the height of the wave
-        float frequency = 0.2f; // Adjust this value to change the speed of the wave
-    return amplitude * new Vector2(Mathf.PerlinNoise(time * frequency, 0.0f), Mathf.PerlinNoise(0.0f, time * frequency));
-}
-
-
-
-
-
-
-
-
-
 
 
 
@@ -115,4 +129,4 @@ public class TextNoise : MonoBehaviour
     //         textComponent.UpdateGeometry(meshInfo.mesh, i); 
     //     }
     // }
-}
+

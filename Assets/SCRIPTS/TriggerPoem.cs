@@ -21,6 +21,7 @@ public class TriggerPoem : MonoBehaviour
     private AudioSource audioSource; 
     private InputData inputData;
     private string sceneName;
+    private GameObject obj;
     
     // isGazed determines whether gaze raycast is colliding with text collider or not
     // isStanzaDone is in place - WHY? what's the reason? 
@@ -34,6 +35,8 @@ public class TriggerPoem : MonoBehaviour
         poemText = basePoem.GetComponent<TextMeshPro>();
         audioSource = basePoem.GetComponent<AudioSource>(); 
         sceneName = SceneManager.GetActiveScene().name;
+        obj = this.gameObject;
+
 
     }
 
@@ -52,14 +55,14 @@ public class TriggerPoem : MonoBehaviour
             lines[idx].SetActive(true);
             
             lineText = lines[idx].GetComponent<TextMeshPro>();
-            lineStr = lineText.text;
+            lineStr = NormalizeText(lineText.text);
 
 
             if (sceneName == "Nurturers") {
-                if (lineStr == "Dreamed of you last night.")
-                    nurtObjManager.DisableTitle();
+                // if (lineStr == "Dreamed of you last night.")
+                //     nurtObjManager.DisableTitle();
                 
-                else if (lineStr == "We ran away from robots—those brainsick bots—") 
+                if (lineStr == "We ran away from robots—those brainsick bots—") 
                     nurtObjManager.EnableTV();
                 
                 else if (lineStr == "my mistake.") {
@@ -139,6 +142,10 @@ public class TriggerPoem : MonoBehaviour
             // audioSource.clip = audioClips[idx];
 
             basePoem.SetActive(true); // when basePoem is enabled, the animation will play, as well as the poem associated with it
+
+            if (obj.name == "tv collide") {
+                nurtObjManager.DisableTitle();
+            }
         }
     }
 
@@ -151,6 +158,16 @@ public class TriggerPoem : MonoBehaviour
     {
         isGazed = false;
     }
+
+    string NormalizeText(string text) {
+        // Trim leading and trailing spaces
+        text = text.Trim();
+        // Replace line breaks with spaces
+        text = text.Replace("\n", " ").Replace("\r", " ");
+        // Remove extra spaces
+        text = System.Text.RegularExpressions.Regex.Replace(text, @"\s+", " ");
+        return text;
+}
 
     // void Update()
     // {
