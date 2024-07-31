@@ -3327,7 +3327,6 @@ MonoBehaviour:
   - {fileID: 1533120776}
   - {fileID: 430532253}
   - {fileID: 241139471}
-  portal: {fileID: 983196410}
   loading: {fileID: 1366805801}
   fs_text: {fileID: 850249436}
   nur_text: {fileID: 1637197829}
@@ -4298,7 +4297,6 @@ MonoBehaviour:
   - {fileID: 1533120776}
   - {fileID: 430532253}
   - {fileID: 241139471}
-  portal: {fileID: 983196410}
   loading: {fileID: 1366805801}
   fs_text: {fileID: 850249436}
   nur_text: {fileID: 1637197829}
@@ -11479,6 +11477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeAnimator: {fileID: 1607588166}
+  quizActivator: {fileID: 235941808}
 --- !u!1 &983827498
 GameObject:
   m_ObjectHideFlags: 0
