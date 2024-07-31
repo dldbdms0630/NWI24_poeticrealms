@@ -92,12 +92,11 @@ public class NurtObjManager : MonoBehaviour
         firstStanza.SetActive(false);
         polaroidPortal.SetActive(true);
         polaroidCamera.SetActive(true);
-        polaroidText.SetActive(true);
     }
 
     public void EnablePolaroidTwo()
     {
-        // set active light in lamp, all of the 6 polaroids (just use parent), 
+
         polaroids.SetActive(true);
         polaroidLight.SetActive(true);
         // frontSofaPortal.SetActive(false);
@@ -109,7 +108,7 @@ public class NurtObjManager : MonoBehaviour
         polaroidPortal.SetActive(false);
         polaroidText.SetActive(false);
         windowPortal.SetActive(true);
-        windowText.SetActive(true);
+        // windowText.SetActive(true);
     }
 
     public void EnableWindowVideo()
