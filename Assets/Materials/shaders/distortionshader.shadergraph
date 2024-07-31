@@ -323,10 +323,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 1307.0,
-            "y": 890.0,
-            "width": 125.5,
-            "height": 77.0
+            "x": 1417.0,
+            "y": 861.5,
+            "width": 171.9998779296875,
+            "height": 34.0
         }
     },
     "m_Slots": [
@@ -552,10 +552,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 1564.5,
-            "y": 643.5000610351563,
-            "width": 145.0,
-            "height": 128.4998779296875
+            "x": 1674.5,
+            "y": 615.0,
+            "width": 144.9998779296875,
+            "height": 128.5
         }
     },
     "m_Slots": [
@@ -704,7 +704,7 @@
     "m_ShaderOutputName": "B",
     "m_StageCapability": 3,
     "m_Value": {
-        "e00": 0.10000000149011612,
+        "e00": 0.05000000074505806,
         "e01": 2.0,
         "e02": 2.0,
         "e03": 2.0,
@@ -825,8 +825,8 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 583.4999389648438,
-            "y": 768.5,
+            "x": 644.5,
+            "y": 734.0,
             "width": 208.0,
             "height": 434.0
         }
@@ -1012,8 +1012,8 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 1522.0,
-            "y": 796.5,
+            "x": 1631.9998779296875,
+            "y": 768.0,
             "width": 208.0,
             "height": 302.0
         }
@@ -1055,8 +1055,8 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 1774.9998779296875,
-            "y": 769.5,
+            "x": 1884.9998779296875,
+            "y": 741.0,
             "width": 208.0001220703125,
             "height": 302.0
         }
@@ -1469,8 +1469,8 @@
     "m_ObjectId": "a14ad64247184dd6b883007730b8ca8c",
     "m_Title": "distorting screen uvs",
     "m_Position": {
-        "x": 1282.0,
-        "y": 585.0
+        "x": 1392.0,
+        "y": 556.5
     }
 }
 
@@ -1509,7 +1509,7 @@
     "m_ShaderOutputName": "B",
     "m_StageCapability": 3,
     "m_Value": {
-        "e00": 0.10000000149011612,
+        "e00": 0.05000000074505806,
         "e01": 2.0,
         "e02": 2.0,
         "e03": 2.0,
@@ -2170,9 +2170,9 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 877.0,
-            "y": 820.5,
-            "width": 207.9998779296875,
+            "x": 915.0,
+            "y": 791.5,
+            "width": 208.0,
             "height": 278.0
         }
     },
