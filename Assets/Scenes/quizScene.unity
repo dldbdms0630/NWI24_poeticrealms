@@ -3477,13 +3477,11 @@ MonoBehaviour:
   questionSets:
   - {fileID: 448972856}
   - {fileID: 1960565484}
-  - {fileID: 463000001}
   - {fileID: 515232455}
   - {fileID: 1335367402}
   - {fileID: 36740242}
   - {fileID: 1383523668}
   - {fileID: 110076410}
-  - {fileID: 1533120776}
   - {fileID: 430532253}
   - {fileID: 241139471}
   loading: {fileID: 1366805801}
@@ -9452,15 +9450,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c8d96f456769f9f44a4ab19094058170, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: 4.37
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c8d96f456769f9f44a4ab19094058170, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.5
+      value: -0.78
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c8d96f456769f9f44a4ab19094058170, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.9
+      value: 16.54
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c8d96f456769f9f44a4ab19094058170, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13930,7 +13928,7 @@ Transform:
   m_GameObject: {fileID: 1067466696}
   serializedVersion: 2
   m_LocalRotation: {x: -0.16590182, y: -0.49886024, z: -0.21230806, w: 0.82373565}
-  m_LocalPosition: {x: -10.14, y: -0.58, z: 13.4}
+  m_LocalPosition: {x: -15.59, y: 2.63, z: 12.45}
   m_LocalScale: {x: 1, y: 1.5, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
