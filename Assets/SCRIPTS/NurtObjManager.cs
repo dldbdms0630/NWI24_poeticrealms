@@ -155,7 +155,7 @@ public class NurtObjManager : MonoBehaviour
     public void EnableComputerPortal()
     {
         // firstWonderText.SetActive(false);
-
+        firstWonderPortal.SetActive(false);
         computerPortal.SetActive(true);
         // computerText.SetActive(true);
     }
