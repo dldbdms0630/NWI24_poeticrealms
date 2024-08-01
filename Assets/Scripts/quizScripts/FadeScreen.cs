@@ -8,7 +8,7 @@ public class FadeScreen : MonoBehaviour
     public float fadeDuration = 2;
     public Color fadeColor;
     public AnimationCurve fadeCurve;
-    public string colorPropertyName = "_Color";
+    public string colorPropertyName = "_BaseColor";
     private Renderer rend;
 
     // Start is called before the first frame update

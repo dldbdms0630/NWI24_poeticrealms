@@ -12,7 +12,7 @@ public class TextNoise : MonoBehaviour
     void Start()
     {
         textMesh = GetComponent<TMP_Text>();
-        StartCoroutine(name);
+        // StartCoroutine(name);
     }
 
     void Update() {
@@ -47,18 +47,32 @@ public class TextNoise : MonoBehaviour
         if (wordInfo.lastCharacterIndex + 1 < textInfo.characterCount)
         {
             var nextCharInfo = textInfo.characterInfo[wordInfo.lastCharacterIndex + 1];
-            if (nextCharInfo.character == '.' || nextCharInfo.character == ',' || nextCharInfo.character == '!' || nextCharInfo.character == '?' || nextCharInfo.character == '—')
+            if (nextCharInfo.character == '.' || nextCharInfo.character == ',' || nextCharInfo.character == '!' 
+                || nextCharInfo.character == '?' || nextCharInfo.character == '—' || nextCharInfo.character == ':'
+                || nextCharInfo.character == '\'')
             {
-                Debug.Log("Detected em-dash: " + nextCharInfo.character);
                 int vertexIndex = nextCharInfo.vertexIndex;
 
+                for (int k = 0; k < 4; k++)
+                    textInfo.meshInfo[nextCharInfo.materialReferenceIndex].vertices[vertexIndex + k] += offset;
+            }
+            else if (nextCharInfo.character == '\'')
+            {
+                int nextWordIndex = wordInfo.lastCharacterIndex + 1;
+                while (nextWordIndex < textInfo.characterCount && textInfo.characterInfo[nextWordIndex].character != ' ' && textInfo.characterInfo[nextWordIndex].character != '\n')
+                {
+                    var followingCharInfo = textInfo.characterInfo[nextWordIndex];
+                    int vertexIndex = followingCharInfo.vertexIndex;
+
                     for (int k = 0; k < 4; k++)
-                    {
-                        textInfo.meshInfo[nextCharInfo.materialReferenceIndex].vertices[vertexIndex + k] += offset;
+                        {
+                            textInfo.meshInfo[followingCharInfo.materialReferenceIndex].vertices[vertexIndex + k] += offset;
+                        }
+
+                        nextWordIndex++;
                     }
                 }
             }
-
         }
 
         // INDIVIDUAL
@@ -74,7 +88,7 @@ public class TextNoise : MonoBehaviour
 
     Vector2 Wobble(float time) {
         float amplitude = 0.02f; // Adjust this value to change the height of the wave
-        float frequency = 0.1f; // Adjust this value to change the speed of the wave
+        float frequency = 0.15f; // Adjust this value to change the speed of the wave
         return amplitude * new Vector2(Mathf.PerlinNoise(time * frequency, 0.0f), Mathf.PerlinNoise(0.0f, time * frequency));
     }
 }

@@ -36,79 +36,98 @@ public class TriggerPoem : MonoBehaviour
         audioSource = basePoem.GetComponent<AudioSource>(); 
         sceneName = SceneManager.GetActiveScene().name;
         obj = this.gameObject;
-
-
     }
 
     void Update()
     {
         if (isGazed && inputData.rightController.TryGetFeatureValue(CommonUsages.primaryButton, out bool Abutton)) {
-            if (!isStanzaDone && Abutton && !audioSource.isPlaying) {
-                ChangeText();
+            if (!isStanzaDone && Abutton && !audioSource.isPlaying && canAdvanceText) {
+                StartCoroutine(ChangeText());
             }
         }
     }
 
-    void ChangeText() {
+    IEnumerator HandleInitialText() {
+        string initialText = NormalizeText(poemText.text);
+        yield return new WaitForSeconds(audioSource.clip.length);
+
+
+        if (sceneName == "Nurturers") {
+            if (initialText == "Let 'em hear the hymns of your searching-fearless eyes,") 
+                nurtObjManager.EnablePolaroidTwo();
+
+            // else if (initialText == "Know")
+            //     nurtObjManager.EnableWindowVideo();
+
+            else if (initialText == "I wonder—")
+                nurtObjManager.EnableParticles();
+
+            else if (initialText == "I wonder—you consoled me")
+                // canAdvanceText = false;
+                nurtObjManager.EnableComputerEvent();
+        }
+
+    }
+
+    IEnumerator ChangeText() {
         if (idx < lines.Length) {
             audioSource = lines[idx].GetComponent<AudioSource>();
             lines[idx].SetActive(true);
             
             lineText = lines[idx].GetComponent<TextMeshPro>();
             lineStr = NormalizeText(lineText.text);
-
+            
+            yield return new WaitForSeconds(audioSource.clip.length);
 
             if (sceneName == "Nurturers") {
-                // if (lineStr == "Dreamed of you last night.")
-                //     nurtObjManager.DisableTitle();
-                
                 if (lineStr == "We ran away from robots—those brainsick bots—") 
+                    // nurtObjManager.PrepareTV();
                     nurtObjManager.EnableTV();
                 
                 else if (lineStr == "my mistake.") {
-                    // yield return new WaitForSeconds(1);
+                    canAdvanceText = false;
+                    yield return new WaitForSeconds(1);
+                    canAdvanceText = true;
                     nurtObjManager.EnablePolaroidOne();
                 }
-                else if (lineStr == "Let 'em hear the hymns of your searching-fearless eyes,") 
-                    nurtObjManager.EnablePolaroidTwo();
 
                 else if (lineStr == "your seashells-don't-rust eyes.") {
-                    // yield return new WaitForSeconds(1);
+                    canAdvanceText = false;
+                    yield return new WaitForSeconds(1);
+                    canAdvanceText = true;
                     nurtObjManager.EnableWindowPortal();
                 }
 
-                else if (lineStr == "Know")
-                    nurtObjManager.EnableWindowVideo();
+                // else if (lineStr == "I digested every moving moment you contained me in them,")
+                //     nurtObjManager.EnableWindowVideo();
 
                 else if (lineStr == "with raw faith, with silent love—") {
-                    // yield return new WaitForSeconds(1);
+                    canAdvanceText = false;
+                    yield return new WaitForSeconds(1);
+                    canAdvanceText = true;
                     nurtObjManager.EnableHandPortal();
                 }
-
-                else if (lineStr == "notice: We're still running")
+                else if (lineStr == "hand in hand—we're running hand in hand—")
                     nurtObjManager.EnableHandMovie();
 
                 else if (lineStr == "your breath is certain & we keep running.") {
-                    // yield return new WaitForSeconds(1);
+                    canAdvanceText = false;
+                    yield return new WaitForSeconds(1);
+                    canAdvanceText = true;                    
                     nurtObjManager.EnableFirstWonder();
                 }
-                
-                else if (lineStr == "I wonder—")
-                    nurtObjManager.EnableParticles();
 
                 else if (lineStr == "why do I hold you like you will slip away?") {
-                    // yield return new WaitForSeconds(1);
+                    canAdvanceText = false;
+                    yield return new WaitForSeconds(1);
+                    canAdvanceText = true;
                     nurtObjManager.EnableComputerPortal();
                 }
 
-
-                else if (lineStr == "I wonder—you consoled me")
-                    // canAdvanceText = false;
-                    nurtObjManager.EnableComputerEvent();
-                
-
                 else if (lineStr == "where have you gone to?") {
-                    // yield return new WaitForSeconds(1);
+                    canAdvanceText = false;
+                    yield return new WaitForSeconds(1);
+                    canAdvanceText = true;
                     nurtObjManager.EnableSecondToLast();
                 }
 
@@ -117,16 +136,15 @@ public class TriggerPoem : MonoBehaviour
                     nurtObjManager.EnableSmileyStanza();
 
                  else if (lineStr == "like I-see-you-in-every-single-smiley—") {
-                    // yield return new WaitForSeconds(3);
-                    nurtObjManager.GoToLastStanza();
+                    yield return new WaitForSeconds(3);
+                    nurtObjManager.StartCoroutine(nurtObjManager.GoToLastStanza());
                 }
 
-            } else if (sceneName == "NoFunNurt") {
-                if (lineStr == "it's all you.")  {
-                    // yield return new WaitForSeconds(1);
-                    nurtObjManager.FadeBgMusic();
+            // } else if (sceneName == "NoFunNurt") {
+            //     if (lineStr == "it's all you.")  {
+            //         nurtObjManager.FadeBgMusic();
 
-                }
+            //     }
             }
 
             idx++;
@@ -136,15 +154,19 @@ public class TriggerPoem : MonoBehaviour
 
 
     private void OnTriggerEnter(Collider collision) {
-        if (collision.gameObject.tag == "PlayerBody" && isFirstTrigger) {
+        if (collision.gameObject.tag == "MainCamera" && isFirstTrigger) {
             isFirstTrigger = false; // to prevent multiple triggers 
-            // poemText.text = lines[0];
-            // audioSource.clip = audioClips[idx];
 
             basePoem.SetActive(true); // when basePoem is enabled, the animation will play, as well as the poem associated with it
 
-            if (obj.name == "tv collide") {
+            StartCoroutine(HandleInitialText());
+
+
+            if (obj.name == "tv collide")
                 nurtObjManager.DisableTitle();
+            
+            if (obj.name == "pola collide") {
+                nurtObjManager.EnablePolaroidTwo();
             }
         }
     }
