@@ -54,7 +54,8 @@ public class QuizActivator : MonoBehaviour
         fs_text.SetActive(false);
         nur_text.SetActive(false);
         vis_text.SetActive(false);
-        vis_text.SetActive(true);
+
+        backCollider.SetActive(true);
         doorSpawn.SetActive(false);
         //BackToStart();
 
@@ -277,7 +278,11 @@ public class QuizActivator : MonoBehaviour
 
         //set the poem button active
         loading.SetActive(true);
-        if(sceneToLoad == 1)
+        fs_text.SetActive(false);
+        nur_text.SetActive(false);
+        vis_text.SetActive(false);
+
+        if (sceneToLoad == 1)
         {
             fs_text.SetActive(true);
         }

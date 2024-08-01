@@ -80,27 +80,25 @@ public class QuizCalc : MonoBehaviour
 
     public int quizEnd()
     {
-        /*if(visionaryScore > nurturerScore && visionaryScore > freeSpiritScore)
+        if(visionaryScore > nurturerScore && visionaryScore > freeSpiritScore)
         {
             Debug.Log("YOURE A VISONARY aaaaaaaaaaaaa ");
             //SceneManager.LoadScene("Visionaries");
             return 3;
         }
-        else if (nurturerScore > freeSpiritScore && nurturerScore > visionaryScore)
+        else if (freeSpiritScore > nurturerScore && freeSpiritScore > visionaryScore)
         {
-            Debug.Log("NURTERUER ");
+            Debug.Log("freeeeeee spritei ");
             //SceneManager.LoadScene("Nurturers");
-            return 2;
+            return 1;
         }
         else
         {
-            Debug.Log("FREE SPIRIT HOMIEEE E");
+            Debug.Log("nurtuerrer");
             //SceneManager.LoadScene("Freespirits");
-            return 1;
+            return 2;
         }
-        */
-
-        return 2;
+        
         Debug.Log("load the scenes now lmao");
     }
 
