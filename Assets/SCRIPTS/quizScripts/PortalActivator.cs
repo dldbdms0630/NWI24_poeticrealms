@@ -44,7 +44,9 @@ public class PortalActivator : MonoBehaviour
         else if (sceneNum == 3)
         {
             Debug.Log("vis load");
-            SceneManager.LoadScene("Visionaries");
+            SceneManager.LoadScene("Nurturers");
+
+            //SceneManager.LoadScene("Visionaries");
         }
         else
         {
