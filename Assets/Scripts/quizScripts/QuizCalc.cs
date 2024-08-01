@@ -100,7 +100,11 @@ public class QuizCalc : MonoBehaviour
         }
         */
 
-        return 2;
+        if(nurturerScore > freeSpiritScore)
+        {
+            return 2;
+        }
+        return 1;
         Debug.Log("load the scenes now lmao");
     }
 
