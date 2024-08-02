@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 299639868}
-  m_IndirectSpecularColor: {r: 0.3556813, g: 0.45090201, b: 0.5734181, a: 1}
+  m_IndirectSpecularColor: {r: 0.3555703, g: 0.4507429, b: 0.5732514, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14762,7 +14762,7 @@ MonoBehaviour:
   OnGazeEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1848942173}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ChangeTextOnTrigger, Assembly-CSharp
         m_MethodName: EnableGaze
         m_Mode: 1
@@ -14777,7 +14777,7 @@ MonoBehaviour:
   OnGazeStay:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1848942173}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ChangeTextOnTrigger, Assembly-CSharp
         m_MethodName: EnableGaze
         m_Mode: 1
@@ -14792,7 +14792,7 @@ MonoBehaviour:
   OnGazeExit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1848942173}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ChangeTextOnTrigger, Assembly-CSharp
         m_MethodName: DisableGaze
         m_Mode: 1
@@ -16579,8 +16579,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cce2cf458ea19f49b1276393e9aa694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeAnimator: {fileID: 0}
   quizActivator: {fileID: 0}
+  fadescreen: {fileID: 0}
 --- !u!64 &1165993304
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -24739,17 +24739,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3419535704676137492, guid: f4c38ea9e8eab478488c917ffd514820, type: 3}
   m_PrefabInstance: {fileID: 1844996001}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1848942173 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8121695851753152018, guid: 462cc6d1006e94ccba422c3db04ee6ea, type: 3}
-  m_PrefabInstance: {fileID: 8860154770827143157}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb9a193acecf24b5797fc2c56c22d6ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1853936893
 GameObject:
   m_ObjectHideFlags: 0
@@ -42042,71 +42031,6 @@ Transform:
   - {fileID: 7296608040872402}
   m_Father: {fileID: 6041600363490623820}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &8860154770827143157
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2905736831115760190, guid: 462cc6d1006e94ccba422c3db04ee6ea, type: 3}
-      propertyPath: m_Name
-      value: poemhandler
-      objectReference: {fileID: 0}
-    - target: {fileID: 2905736831115760190, guid: 462cc6d1006e94ccba422c3db04ee6ea, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8121695851753152018, guid: 462cc6d1006e94ccba422c3db04ee6ea, type: 3}
-      propertyPath: textObject
-      value: 
-      objectReference: {fileID: 927906570}
-    - target: {fileID: 8931143038681814530, guid: 462cc6d1006e94ccba422c3db04ee6ea, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 38.802933
-      objectReference: {fileID: 0}
-    - target: {fileID: 8931143038681814530, guid: 462cc6d1006e94ccba422c3db04ee6ea, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.785642
-      objectReference: {fileID: 0}
-    - target: {fileID: 8931143038681814530, guid: 462cc6d1006e94ccba422c3db04ee6ea, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 71.107574
-      objectReference: {fileID: 0}
-    - target: {fileID: 8931143038681814530, guid: 462cc6d1006e94ccba422c3db04ee6ea, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8931143038681814530, guid: 462cc6d1006e94ccba422c3db04ee6ea, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8931143038681814530, guid: 462cc6d1006e94ccba422c3db04ee6ea, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8931143038681814530, guid: 462cc6d1006e94ccba422c3db04ee6ea, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8931143038681814530, guid: 462cc6d1006e94ccba422c3db04ee6ea, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8931143038681814530, guid: 462cc6d1006e94ccba422c3db04ee6ea, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8931143038681814530, guid: 462cc6d1006e94ccba422c3db04ee6ea, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 462cc6d1006e94ccba422c3db04ee6ea, type: 3}
 --- !u!1 &9131151122596533518
 GameObject:
   m_ObjectHideFlags: 0
@@ -42138,7 +42062,6 @@ SceneRoots:
   - {fileID: 1069490429}
   - {fileID: 625573124}
   - {fileID: 2061425830}
-  - {fileID: 8860154770827143157}
   - {fileID: 267292379}
   - {fileID: 217208850}
   - {fileID: 1670733790}
