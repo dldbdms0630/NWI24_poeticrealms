@@ -17,6 +17,7 @@ public class TriggerPoem : MonoBehaviour
 
 
     public NurtObjManager nurtObjManager;
+    public FSObjectManager fsObjManager;
 
     private AudioSource audioSource; 
     private InputData inputData;
