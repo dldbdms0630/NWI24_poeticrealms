@@ -57,6 +57,7 @@ public class NurtObjManager : MonoBehaviour
     public AudioSource nurtBgMusic;
 
     private string sceneName;
+    private AudioSource objAudio;
 
     public void Awake()
     {
@@ -160,15 +161,17 @@ public class NurtObjManager : MonoBehaviour
         // computerText.SetActive(true);
     }
 
-    public void EnableComputerEvent()
+    public IEnumerator EnableComputerEvent()
     {
         // FindObjectOfType<ChangeTextOnTrigger>().canAdvanceText = false;
+        objAudio = computerScreen.GetComponent<AudioSource>();
+        objAudio.Play();
+        yield return new WaitForSeconds(2);
 
-        computerScreen.GetComponent<MeshRenderer> ().material = compatibilityMat;
+        computerScreen.GetComponent<MeshRenderer>().material = compatibilityMat;
         tableLight.SetActive(true);
         tableLightMat.EnableKeyword("_EMISSION");
         tableLightMat.globalIlluminationFlags = MaterialGlobalIlluminationFlags.None;
-
     }
 
     public void OnComputerScreenTouched()
