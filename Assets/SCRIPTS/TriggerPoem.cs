@@ -64,7 +64,7 @@ public class TriggerPoem : MonoBehaviour
 
             else if (initialText == "I wonder—you consoled me")
                 // canAdvanceText = false;
-                nurtObjManager.EnableComputerEvent();
+                nurtObjManager.StartCoroutine(nurtObjManager.EnableComputerEvent());
         }
 
     }
@@ -100,9 +100,7 @@ public class TriggerPoem : MonoBehaviour
                 //     nurtObjManager.EnableWindowVideo();
 
                 else if (lineStr == "with raw faith, with silent love—") {
-                    canAdvanceText = false;
                     yield return new WaitForSeconds(1);
-                    canAdvanceText = true;
                     nurtObjManager.EnableHandPortal();
                 }
                 else if (lineStr == "hand in hand—we're running hand in hand—")

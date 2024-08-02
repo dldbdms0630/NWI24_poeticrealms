@@ -46,6 +46,8 @@ public class NurtFinalStanza : MonoBehaviour
     }
 
     IEnumerator ChangeText() {
+        canAdvanceText = false;
+
         if (idx < lines.Length) {
             audioSource = lines[idx].GetComponent<AudioSource>();
             lines[idx].SetActive(true);
@@ -56,22 +58,18 @@ public class NurtFinalStanza : MonoBehaviour
             yield return new WaitForSeconds(audioSource.clip.length);
 
             if (lineText.text == "Alone, I whisper,") {
-                canAdvanceText = false;
                 yield return new WaitForSeconds(1);
-                canAdvanceText = true;
             } else if (lineText.text == "it's all your fault.") {
-                canAdvanceText = false;
-                yield return new WaitForSeconds(1);
-                canAdvanceText = true;
+                // yield return new WaitForSeconds(1);
             } else if (lineText.text == "No, scratch that—") {
-                canAdvanceText = false;
                 yield return new WaitForSeconds(1);
-                canAdvanceText = true;
             } else if (lineText.text == "it's all you.")
                 FadeBgMusic();
-
             idx++;
         }
+        yield return new WaitForSeconds(0.5f); // Debounce delay
+
+        canAdvanceText = true; // Allow next trigger
     }
 
     public void FadeBgMusic()
