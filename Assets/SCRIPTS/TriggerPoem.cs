@@ -64,8 +64,7 @@ public class TriggerPoem : MonoBehaviour
 
             else if (initialText == "I wonder—you consoled me")
                 // canAdvanceText = false;
-                nurtObjManager.StartCoroutine(nurtObjManager.EnableComputerEvent());
-
+                nurtObjManager.EnableComputerEvent();
         }
 
     }
