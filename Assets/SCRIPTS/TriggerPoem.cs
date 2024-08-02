@@ -70,6 +70,8 @@ public class TriggerPoem : MonoBehaviour
     }
 
     IEnumerator ChangeText() {
+        canAdvanceText = false;
+
         if (idx < lines.Length) {
             audioSource = lines[idx].GetComponent<AudioSource>();
             lines[idx].SetActive(true);
@@ -85,16 +87,12 @@ public class TriggerPoem : MonoBehaviour
                     nurtObjManager.EnableTV();
                 
                 else if (lineStr == "my mistake.") {
-                    canAdvanceText = false;
                     yield return new WaitForSeconds(1);
-                    canAdvanceText = true;
                     nurtObjManager.EnablePolaroidOne();
                 }
 
                 else if (lineStr == "your seashells-don't-rust eyes.") {
-                    canAdvanceText = false;
                     yield return new WaitForSeconds(1);
-                    canAdvanceText = true;
                     nurtObjManager.EnableWindowPortal();
                 }
 
@@ -111,27 +109,19 @@ public class TriggerPoem : MonoBehaviour
                     nurtObjManager.EnableHandMovie();
 
                 else if (lineStr == "your breath is certain & we keep running.") {
-                    canAdvanceText = false;
                     yield return new WaitForSeconds(1);
-                    canAdvanceText = true;                    
                     nurtObjManager.EnableFirstWonder();
                 }
 
                 else if (lineStr == "why do I hold you like you will slip away?") {
-                    canAdvanceText = false;
                     yield return new WaitForSeconds(1);
-                    canAdvanceText = true;
                     nurtObjManager.EnableComputerPortal();
                 }
 
                 else if (lineStr == "where have you gone to?") {
-                    canAdvanceText = false;
                     yield return new WaitForSeconds(1);
-                    canAdvanceText = true;
                     nurtObjManager.EnableSecondToLast();
                 }
-
-
                 else if (lineStr == "So I surrender,")
                     nurtObjManager.EnableSmileyStanza();
 
@@ -139,16 +129,14 @@ public class TriggerPoem : MonoBehaviour
                     yield return new WaitForSeconds(3);
                     nurtObjManager.StartCoroutine(nurtObjManager.GoToLastStanza());
                 }
-
-            // } else if (sceneName == "NoFunNurt") {
-            //     if (lineStr == "it's all you.")  {
-            //         nurtObjManager.FadeBgMusic();
-
-            //     }
             }
-
             idx++;
-        } else isStanzaDone = true;
+        } else {
+            isStanzaDone = true;
+        }
+        yield return new WaitForSeconds(0.5f); // Debounce delay
+
+        canAdvanceText = true; // Allow next trigger
     }
 
 
