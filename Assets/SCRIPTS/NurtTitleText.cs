@@ -13,6 +13,7 @@ public class NurtTitleText : MonoBehaviour
     public GameObject audioObj;
     // private AudioSource bgAudio; 
     private InputData inputData;
+    private bool isGazed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -31,12 +32,22 @@ public class NurtTitleText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {  // don't put gaze here cuz we don't necessarily need it for the title 
-        if (inputData.rightController.TryGetFeatureValue(CommonUsages.primaryButton, out bool Abutton)) 
+        if (isGazed && inputData.rightController.TryGetFeatureValue(CommonUsages.primaryButton, out bool Abutton)) 
         {
             if (Abutton) {
                 colliderObj.SetActive(true); // make sure collider only enabled after title 
             }
            
         }
+    }
+    
+    public void EnableGaze() 
+    {
+        isGazed = true;
+    }
+
+    public void DisableGaze() 
+    {
+        isGazed = false;
     }
 }
