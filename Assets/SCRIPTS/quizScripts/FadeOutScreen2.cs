@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FadeScreen : MonoBehaviour
+public class FadeOutScreen2 : MonoBehaviour
 {
     public bool fadeOnStart = true;
-    public float fadeDuration = 3;
+    public float fadeDuration = 2;
     public Color fadeColor;
     public AnimationCurve fadeCurve;
     public string colorPropertyName = "_BaseColor";
@@ -36,7 +36,7 @@ public class FadeScreen : MonoBehaviour
         StartCoroutine(FadeRoutine(alphaIn,alphaOut));
     }
 
-    public IEnumerator FadeRoutine(float alphaIn,float alphaOut)
+    public IEnumerator FadeRoutine(float alphaOut,float alphaIn)
     {
         rend.enabled = true;
 

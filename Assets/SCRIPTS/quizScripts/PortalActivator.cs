@@ -6,13 +6,15 @@ using UnityEngine.SceneManagement;
 public class PortalActivator : MonoBehaviour
 {
     private int sceneNum;
-    public Animator fadeAnimator;
+    //public Animator fadeAnimator;
     public QuizActivator quizActivator;
+    public GameObject fadescreen;
 
     // Start is called before the first frame update
     void Start()
     {
         sceneNum = -1;
+        fadescreen.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
@@ -20,16 +22,19 @@ public class PortalActivator : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Interacted!!");
-            LoadPoemScene();
+            StartCoroutine(LoadPoemScene());
         }
     }
 
 
-    private void LoadPoemScene()
+    private IEnumerator LoadPoemScene()
     {
-        fadeAnimator.SetTrigger("FadeOut");
+        //fadeAnimator.SetTrigger("FadeOut");
+        fadescreen.SetActive(true);
 
         sceneNum = quizActivator.getScene();
+
+        yield return new WaitForSeconds(2);
 
         if (sceneNum == 1)
         {
