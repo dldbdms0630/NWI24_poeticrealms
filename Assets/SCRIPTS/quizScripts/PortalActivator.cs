@@ -9,21 +9,39 @@ public class PortalActivator : MonoBehaviour
     //public Animator fadeAnimator;
     public QuizActivator quizActivator;
     public GameObject fadescreen;
+    public GameObject fadenum2;
+    private string sceneName;
+    public AudioSource bgMusic;
+
 
     // Start is called before the first frame update
     void Start()
     {
         sceneNum = -1;
         fadescreen.SetActive(false);
+        sceneName = SceneManager.GetActiveScene().name;
+        fadenum2.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player")|| other.CompareTag("MainCamera"))
         {
             Debug.Log("Interacted!!");
-            StartCoroutine(LoadPoemScene());
+            if (sceneName == "Freespirits") {
+                StartCoroutine(FadeForFreeSpiritsDemo());
+            } else
+                StartCoroutine(LoadPoemScene());
         }
+    }
+
+// new brick solution for demo day yooeun 
+    IEnumerator FadeForFreeSpiritsDemo() {
+        StartCoroutine(FadeAudioSource.StartFade(bgMusic, 3, 0));
+
+        fadescreen.SetActive(true);
+        yield return new WaitForSeconds(3);
+        fadenum2.SetActive(true);
     }
 
 
