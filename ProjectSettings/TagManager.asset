@@ -16,6 +16,7 @@ TagManager:
   - OptionC
   - OptionBack
   - PlayerBody
+  - Border
   layers:
   - Default
   - TransparentFX
