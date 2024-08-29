@@ -21,7 +21,7 @@ public class starlaunch : MonoBehaviour
         star1.SetActive(false);
         star2.SetActive(false);
 
-        //triggerStars();
+        triggerStars();
     }
 
     public void triggerStars()
