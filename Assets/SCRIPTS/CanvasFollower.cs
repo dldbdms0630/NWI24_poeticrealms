@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using UnityEngine;
-
 public class CanvasFollower : MonoBehaviour
 {
     public Transform vrCamera; // Assign the VR camera here
