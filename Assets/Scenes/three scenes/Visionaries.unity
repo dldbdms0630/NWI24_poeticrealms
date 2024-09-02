@@ -4760,8 +4760,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Dreamed of you last night.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9f090212ebf24440cb263c56b4edbfdd, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: fff584d40e56b1f4386043aa66fecae8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a8aa6271b77416f4992d0d20736552bb, type: 2}
+  m_sharedMaterial: {fileID: 4585199312285362780, guid: a8aa6271b77416f4992d0d20736552bb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4850,7 +4850,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fff584d40e56b1f4386043aa66fecae8, type: 2}
+  - {fileID: 4585199312285362780, guid: a8aa6271b77416f4992d0d20736552bb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8217,8 +8217,10 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 9ae83d22aec764a348b61e0454ae7b9c, type: 3}
   visionBlockQuad: {fileID: 589191505}
   textObj: {fileID: 560894560}
+  DREAMEDOFYOULASTNIGHT: {fileID: 464123371}
   toSpawn: {fileID: 1575578331}
   toSpawn2: {fileID: 345560435}
+  clocks: {fileID: 0}
 --- !u!114 &876369178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14493,7 +14495,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1865849331
 Transform:
   m_ObjectHideFlags: 0

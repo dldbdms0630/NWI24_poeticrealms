@@ -31,6 +31,8 @@ public class VisionaryText : MonoBehaviour
     public GameObject toSpawn;
     public GameObject toSpawn2;
 
+    public GameObject clocks;
+
 
 
     // Start is called before the first frame update
@@ -82,7 +84,10 @@ public class VisionaryText : MonoBehaviour
                 toSpawn.SetActive(true);
 
             }
-
+            else if(pair.text == "like frantic wishes at 11:11,")
+            {
+                clocks.SetActive(true);
+            }
 
             i++;
             canAdvanceText = false;
