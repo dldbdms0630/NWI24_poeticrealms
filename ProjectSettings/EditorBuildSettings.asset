@@ -17,10 +17,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/three scenes/Nurturers.unity
     guid: ada331a01b2e64aba971937399be8a0b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/three scenes/Visionaries.unity
     guid: 64f898f861239493ea3ec42a941a28fb
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/three scenes/NoFunNurt.unity
     guid: b758dcb306fde448ebc0bc4b5ac96a05
   - enabled: 0
