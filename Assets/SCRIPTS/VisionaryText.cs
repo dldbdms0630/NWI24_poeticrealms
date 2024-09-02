@@ -27,6 +27,10 @@ public class VisionaryText : MonoBehaviour
 
     private int i = 0; // for counting index 
 
+    public GameObject DREAMEDOFYOULASTNIGHT;
+    public GameObject toSpawn;
+    public GameObject toSpawn2;
+
 
 
     // Start is called before the first frame update
@@ -48,6 +52,8 @@ public class VisionaryText : MonoBehaviour
         quadDisableSound.Play();
         yield return new WaitForSeconds(0.3f);
         quadRenderer.enabled = false;
+        
+        DREAMEDOFYOULASTNIGHT.SetActive(false);
     }
 
     void Update()
@@ -69,6 +75,14 @@ public class VisionaryText : MonoBehaviour
             textTMP.text = pair.text;
             poemSound.clip = pair.audioClip;
             poemSound.Play();
+
+            if(pair.text == "We ran away from robots—those brainsick bots— ")
+            {
+                Debug.Log("AAAAAAAAAAAAA THERE IS SPAZE");
+                toSpawn.SetActive(true);
+
+            }
+
 
             i++;
             canAdvanceText = false;
