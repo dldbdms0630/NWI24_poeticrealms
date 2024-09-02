@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 1, g: 0.9198113, b: 0.9458368, a: 1}
+  m_AmbientSkyColor: {r: 1, g: 0.8818704, b: 0.8726415, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -26830,10 +26830,10 @@ ParticleSystem:
     enabled: 1
     ratio: 1
     light: {fileID: 6659456924081005103, guid: ec1866770f0db462890df3f584912390, type: 3}
-    randomDistribution: 0
+    randomDistribution: 1
     color: 1
-    range: 1
-    intensity: 1
+    range: 0
+    intensity: 0
     rangeCurve:
       serializedVersion: 2
       minMaxState: 0
@@ -26949,7 +26949,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    maxLights: 20
+    maxLights: 3
   TrailModule:
     enabled: 1
     mode: 0
@@ -51304,6 +51304,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: d8f427bca45b94d41b37f26e07a31f77, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 80f3d44dcc7ab4af2b8e872c2f263c7e, type: 2}
     - target: {fileID: 919132149155446097, guid: d8f427bca45b94d41b37f26e07a31f77, type: 3}
       propertyPath: m_Name
       value: alfred

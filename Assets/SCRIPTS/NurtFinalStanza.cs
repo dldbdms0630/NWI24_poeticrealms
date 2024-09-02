@@ -19,6 +19,18 @@ public class NurtFinalStanza : MonoBehaviour
     private AudioSource audioSource; 
     private InputData inputData;
 
+    public GameObject topLight;
+    public Material topLightMaterial;
+    public GameObject tableLight;
+    public Material tableLightMat;
+    public GameObject computerScreen;
+    public Material blueScreen;
+    public GameObject polaroidLight;
+    public GameObject handLight;
+    public GameObject tallLight;
+    public GameObject particles;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +39,8 @@ public class NurtFinalStanza : MonoBehaviour
         inputData = GetComponent<InputData>();
         // poemText = basePoem.GetComponent<TextMeshPro>();
         audioSource = basePoem.GetComponent<AudioSource>();
+        computerScreen.GetComponent<MeshRenderer>().material = blueScreen;
+
     }
 
     IEnumerator WaitSeconds() {
@@ -60,11 +74,24 @@ public class NurtFinalStanza : MonoBehaviour
             if (lineText.text == "Alone, I whisper,") {
                 yield return new WaitForSeconds(1);
             } else if (lineText.text == "it's all your fault.") {
-                // yield return new WaitForSeconds(1);
+                 yield return new WaitForSeconds(1);
             } else if (lineText.text == "No, scratch that—") {
-                yield return new WaitForSeconds(1);
-            } else if (lineText.text == "it's all you.")
+                yield return new WaitForSeconds(2);
+            } else if (lineText.text == "it's all you.") {
+                topLight.SetActive(true);
+                topLightMaterial.EnableKeyword("_EMISSION");
+                topLightMaterial.globalIlluminationFlags = MaterialGlobalIlluminationFlags.None;
+                tableLight.SetActive(true);
+                tableLightMat.EnableKeyword("_EMISSION");
+                tableLightMat.globalIlluminationFlags = MaterialGlobalIlluminationFlags.None;
+
+                polaroidLight.SetActive(true);
+                handLight.SetActive(true);
+                tallLight.SetActive(true);
+                particles.SetActive(true);
+            
                 FadeBgMusic();
+            }
             idx++;
         }
         yield return new WaitForSeconds(0.5f); // Debounce delay
