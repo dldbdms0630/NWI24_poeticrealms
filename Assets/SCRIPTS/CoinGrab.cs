@@ -8,6 +8,7 @@ public class CoinGrab : MonoBehaviour
 {
     public bool isGrabbed = false;
     public bool inZone = true;
+    public GameObject wishingWell; 
     //private Transform originalParent;
     //private Collider coinCollider;
     private XRGrabInteractable grabInteractable;
@@ -16,7 +17,8 @@ public class CoinGrab : MonoBehaviour
     private Rigidbody rb;
     private Vector3 SpawnPosition;
     public GameObject particles;
-    public AudioSource sound;
+    private AudioSource coinSound;
+    private AudioSource wishingSound;
 
 
     void Start()
@@ -32,8 +34,9 @@ public class CoinGrab : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         particles.SetActive(false);
-        sound = GetComponent<AudioSource>();
+        coinSound = gameObject.GetComponent<AudioSource>();
         SpawnPosition = new Vector3(54.87f, 1.48f, 61.75f);
+        wishingSound = wishingWell.GetComponent<AudioSource>();
 
         //SpawnPosition = new Vector3(50.05f, 0.73f, 62.59f);
     }
@@ -70,7 +73,7 @@ public class CoinGrab : MonoBehaviour
         {
             Debug.Log("tossed into the well!!");
             particles.SetActive(true);
-            sound.Play();
+            wishingSound.Play();
         }
         if (other.CompareTag("Respawn"))
         {
@@ -96,7 +99,7 @@ public class CoinGrab : MonoBehaviour
         inZone = true;
         isGrabbed = false;
 
-        sound.Play();
+        coinSound.Play();
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         transform.position = SpawnPosition;
