@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class DelayedActivation : MonoBehaviour
 {
-    public int secsToWait = 3;
+    public float secsToWait = 3f;
     public GameObject targetGameObject;
 
     void Start() 

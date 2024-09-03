@@ -13,9 +13,12 @@ public class VisionaryText : MonoBehaviour
         public string text;
         public AudioClip audioClip;
     }
+    [Header("General Stuff")]
     public List<TextAudioPair> textAudioPairs; // List of text and audio clip pairs
-    public GameObject visionBlockQuad; 
     public GameObject textObj; // text object for poem 
+
+    public GameObject toSpawn;
+    public GameObject toSpawn2;
 
     private TextMeshPro textTMP;
     private bool canAdvanceText = true; // for controlling timing of interactions and text
@@ -27,12 +30,25 @@ public class VisionaryText : MonoBehaviour
 
     private int i = 0; // for counting index 
 
+    [Header("dreamed of you last night")]
+    public GameObject visionBlockQuad;
     public GameObject DREAMEDOFYOULASTNIGHT;
-    public GameObject toSpawn;
-    public GameObject toSpawn2;
+    public GameObject bgMusicToStart;
 
+
+    [Header("like frantic wishes")]
     public GameObject clocks;
 
+    [Header("32% compatibility")]
+    public GameObject stars;
+
+    [Header("i wake up ... (final part)")]
+    public GameObject IWAKEUP;
+    public GameObject ALONEIWHISPER;
+    public GameObject ALLYOURFAULT;
+    public GameObject SCRATCHTHAT;
+
+    public GameObject blurShader;
 
 
     // Start is called before the first frame update
@@ -56,9 +72,11 @@ public class VisionaryText : MonoBehaviour
         quadRenderer.enabled = false;
         
         DREAMEDOFYOULASTNIGHT.SetActive(false);
-    }
+        //yield return new WaitForSeconds(1f);
+        //bgMusicToStart.SetActive(true);
+}
 
-    void Update()
+void Update()
     {
         if (inputData.rightController.TryGetFeatureValue(CommonUsages.primaryButton, out bool Abutton)) {
             if (Abutton && !poemSound.isPlaying && canAdvanceText) {
@@ -88,7 +106,36 @@ public class VisionaryText : MonoBehaviour
             {
                 clocks.SetActive(true);
             }
-
+            else if(pair.text == "telling me to trust you over our 32-percent-compatibility,")
+            {
+                stars.SetActive(true);
+            }
+            //this is a really roundabout way of doing this but ig it works 
+            else if(pair.text == "I wake up, my hand casted in the shape of us.")
+            {
+                blurShader.SetActive(true);
+                IWAKEUP.SetActive(true);
+            }
+            else if(pair.text == "Alone, I whisper,")
+            {
+                IWAKEUP.SetActive(false);
+                ALONEIWHISPER.SetActive(true);
+            }
+            else if(pair.text == "it's all your fault.")
+            {
+                ALONEIWHISPER.SetActive(false);
+                ALLYOURFAULT.SetActive(true);
+            }
+            else if (pair.text == "No, scratch that—")
+            {
+                ALLYOURFAULT.SetActive(false);
+                SCRATCHTHAT.SetActive(true);
+            }
+            else if(pair.text == "it's all you.")
+            {
+                SCRATCHTHAT.SetActive(false);
+                blurShader.SetActive(false);
+            }
             i++;
             canAdvanceText = false;
 
