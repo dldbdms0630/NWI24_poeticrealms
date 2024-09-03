@@ -42,6 +42,9 @@ public class VisionaryText : MonoBehaviour
     [Header("32% compatibility")]
     public GameObject stars;
 
+    [Header("notice: we're still running")]
+    public GameObject handParticles;
+
     [Header("i wake up ... (final part)")]
     public GameObject IWAKEUP;
     public GameObject ALONEIWHISPER;
@@ -105,6 +108,16 @@ void Update()
             else if(pair.text == "like frantic wishes at 11:11,")
             {
                 clocks.SetActive(true);
+            }
+            //hand sparkle particles turn on, until "we keep running"
+            else if(pair.text == "notice: We're still running")
+            {
+                Debug.Log("activate hand");
+                handParticles.SetActive(true);
+            }
+            else if(pair.text == "I wonder—")
+            {
+                handParticles.SetActive(false);
             }
             else if(pair.text == "telling me to trust you over our 32-percent-compatibility,")
             {

@@ -6,12 +6,12 @@ public class WallColliderScript : MonoBehaviour
 {
     public float bounceForce = 6f; // The force applied to bounce the object back towards the player
     public Transform playerTransform; // Reference to the player's transform
-    public GameObject CUBETEST1;
-    public GameObject CUBETEST2;
+    //public GameObject CUBETEST1;
+    //public GameObject CUBETEST2;
 
     private void OnCollisionEnter(Collision collision)
     {
-        CUBETEST1.SetActive(true);
+        //CUBETEST1.SetActive(true);
         
         // Check if the object that collided is the "clock"
         if (collision.gameObject.CompareTag("clock"))
@@ -28,7 +28,7 @@ public class WallColliderScript : MonoBehaviour
                 // Apply a small force in the direction of the player
                 clockRb.AddForce(directionToPlayer * bounceForce, ForceMode.Impulse);
 
-                CUBETEST2.SetActive(true);
+                //CUBETEST2.SetActive(true);
             }
         }
 

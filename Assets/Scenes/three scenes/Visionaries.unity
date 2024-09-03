@@ -706,8 +706,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounceForce: 2
   playerTransform: {fileID: 534929040}
-  CUBETEST1: {fileID: 345560435}
-  CUBETEST2: {fileID: 482827727}
 --- !u!1 &71179859
 GameObject:
   m_ObjectHideFlags: 0
@@ -2895,8 +2893,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounceForce: 2
   playerTransform: {fileID: 534929040}
-  CUBETEST1: {fileID: 345560435}
-  CUBETEST2: {fileID: 482827727}
 --- !u!1 &336207894
 GameObject:
   m_ObjectHideFlags: 0
@@ -3896,8 +3892,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounceForce: 2
   playerTransform: {fileID: 534929040}
-  CUBETEST1: {fileID: 345560435}
-  CUBETEST2: {fileID: 482827727}
 --- !u!1 &426734738
 GameObject:
   m_ObjectHideFlags: 0
@@ -8837,8 +8831,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounceForce: 2
   playerTransform: {fileID: 534929040}
-  CUBETEST1: {fileID: 345560435}
-  CUBETEST2: {fileID: 482827727}
 --- !u!1 &845645643
 GameObject:
   m_ObjectHideFlags: 0
@@ -9004,6 +8996,7 @@ MonoBehaviour:
   bgMusicToStart: {fileID: 1813933798}
   clocks: {fileID: 1865849330}
   stars: {fileID: 1619643698}
+  handParticles: {fileID: 482827727}
   IWAKEUP: {fileID: 819798320}
   ALONEIWHISPER: {fileID: 651495032}
   ALLYOURFAULT: {fileID: 1525246109}
@@ -9313,8 +9306,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounceForce: 2
   playerTransform: {fileID: 534929040}
-  CUBETEST1: {fileID: 345560435}
-  CUBETEST2: {fileID: 482827727}
 --- !u!1 &927906569
 GameObject:
   m_ObjectHideFlags: 0
@@ -10361,8 +10352,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounceForce: 2
   playerTransform: {fileID: 534929040}
-  CUBETEST1: {fileID: 345560435}
-  CUBETEST2: {fileID: 482827727}
 --- !u!1 &1030705225
 GameObject:
   m_ObjectHideFlags: 0
@@ -11685,8 +11674,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounceForce: 2
   playerTransform: {fileID: 534929040}
-  CUBETEST1: {fileID: 345560435}
-  CUBETEST2: {fileID: 482827727}
 --- !u!114 &1409910673 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7712547942246075122, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
@@ -13647,8 +13634,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounceForce: 2
   playerTransform: {fileID: 534929040}
-  CUBETEST1: {fileID: 345560435}
-  CUBETEST2: {fileID: 482827727}
 --- !u!1 &1575578331
 GameObject:
   m_ObjectHideFlags: 0
@@ -14417,8 +14402,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounceForce: 2
   playerTransform: {fileID: 534929040}
-  CUBETEST1: {fileID: 345560435}
-  CUBETEST2: {fileID: 482827727}
 --- !u!1 &1758110797
 GameObject:
   m_ObjectHideFlags: 0
@@ -15570,8 +15553,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounceForce: 2
   playerTransform: {fileID: 534929040}
-  CUBETEST1: {fileID: 345560435}
-  CUBETEST2: {fileID: 482827727}
 --- !u!1 &1836998213
 GameObject:
   m_ObjectHideFlags: 0
