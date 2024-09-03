@@ -8,7 +8,7 @@ public class NurtTitleText : MonoBehaviour
 {
     // public GameObject title;
     public GameObject pressAToAdvance;
-    public GameObject colliderObj;
+    public GameObject butterfly; 
 
     public GameObject audioObj;
     // private AudioSource bgAudio; 
@@ -34,7 +34,7 @@ public class NurtTitleText : MonoBehaviour
         if (inputData.rightController.TryGetFeatureValue(CommonUsages.primaryButton, out bool Abutton)) 
         {
             if (Abutton) {
-                colliderObj.SetActive(true); // make sure collider only enabled after title 
+                butterfly.SetActive(true); // then butterfly will appear with default animation 
             }
            
         }
