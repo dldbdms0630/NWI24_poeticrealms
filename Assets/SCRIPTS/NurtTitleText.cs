@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR;
+using UnityEngine.SceneManagement;
+
 
 public class NurtTitleText : MonoBehaviour
 {
     // public GameObject title;
     public GameObject pressAToAdvance;
     public GameObject butterfly; 
+    public GameObject portal; 
 
     public GameObject audioObj;
     // private AudioSource bgAudio; 
     private InputData inputData;
+    private string sceneName;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +24,8 @@ public class NurtTitleText : MonoBehaviour
         inputData = GetComponent<InputData>();
         // bgAudio = audioObj.GetComponent<AudioSource>();
         StartCoroutine(WaitSeconds());
+        sceneName = SceneManager.GetActiveScene().name;
+
     }
 
     IEnumerator WaitSeconds() {
@@ -28,13 +34,17 @@ public class NurtTitleText : MonoBehaviour
         pressAToAdvance.SetActive(true);
     }
 
-    // Update is called once per frame
     void Update()
     {  // don't put gaze here cuz we don't necessarily need it for the title 
         if (inputData.rightController.TryGetFeatureValue(CommonUsages.primaryButton, out bool Abutton)) 
         {
-            if (Abutton) {
-                butterfly.SetActive(true); // then butterfly will appear with default animation 
+            // if (Abutton && ) { sceneName is freespirits butterfly.setactive(true) but if not 
+            //     butterfly.SetActive(true); // then butterfly will appear with default animation 
+            // }
+            if (Abutton && sceneName == "Nurturers") {
+                portal.SetActive(true);
+            } else if (Abutton && sceneName == "Freespirits") {
+                butterfly.SetActive(true);
             }
            
         }

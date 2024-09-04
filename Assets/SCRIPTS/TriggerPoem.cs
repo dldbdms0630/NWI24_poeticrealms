@@ -15,9 +15,8 @@ public class TriggerPoem : MonoBehaviour
     private TextMeshPro lineText;    
     private string lineStr;
 
-
     public NurtObjManager nurtObjManager;
-    public FSObjectManager fsObjManager;
+    public FSObjManager fsObjManager;
 
     private AudioSource audioSource; 
     private InputData inputData;
@@ -131,6 +130,11 @@ public class TriggerPoem : MonoBehaviour
                  else if (lineStr == "like I-see-you-in-every-single-smiley—") {
                     yield return new WaitForSeconds(3);
                     nurtObjManager.StartCoroutine(nurtObjManager.GoToLastStanza());
+                }
+            } else if (sceneName == "Freespirits") {
+                if (lineStr == "my mistake.") {
+                    yield return new WaitForSeconds(1);
+                    fsObjManager.MoveButterflyToDisco(); 
                 }
             }
             idx++;
