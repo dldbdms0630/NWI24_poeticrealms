@@ -31,6 +31,7 @@ public class NurtObjManager : MonoBehaviour
     public GameObject windowPortal;
     public GameObject windowText;
     public GameObject windowVideo;
+    public GameObject clock;
 
     public GameObject handPortal;
     public GameObject handText;
@@ -58,6 +59,7 @@ public class NurtObjManager : MonoBehaviour
 
     private string sceneName;
     private AudioSource objAudio;
+    private AudioSource clockSound;
 
     public void Awake()
     {
@@ -65,6 +67,8 @@ public class NurtObjManager : MonoBehaviour
 
         if (sceneName == "Nurturers")
             nurtBgMusic = firstStanza.GetComponent<AudioSource>();
+            clockSound = clock.GetComponent<AudioSource>();
+
 
         // } else if (sceneName == "NoFunNurt") {
         //     finalBgMusic = firstStanza.GetComponent<AudioSource>();
@@ -94,6 +98,10 @@ public class NurtObjManager : MonoBehaviour
         // mat.SetColor("_EmissionColor", Color.black);
     }
 
+    public void PlayClockSound() {
+        clockSound.Play();
+    }
+
     public void EnablePolaroidOne()
     {
         // set active just the polaroid portal and camera and text
@@ -101,11 +109,11 @@ public class NurtObjManager : MonoBehaviour
         // firstStanza.SetActive(false);
         // instead of disabling stanza, I want to trigger a fade-out animation. 
         polaroidPortal.SetActive(true);
-        polaroidCamera.SetActive(true);
     }
 
     public void EnablePolaroidTwo()
     {
+        polaroidCamera.SetActive(true);
         polaroids.SetActive(true);
         polaroidLight.SetActive(true);
         // frontSofaPortal.SetActive(false);

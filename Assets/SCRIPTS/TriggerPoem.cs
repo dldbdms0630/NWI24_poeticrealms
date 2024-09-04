@@ -104,6 +104,10 @@ public class TriggerPoem : MonoBehaviour
                     yield return new WaitForSeconds(1);
                     nurtObjManager.EnableHandPortal();
                 }
+
+                else if (lineStr == "like frantic wishes at 11:11,") {
+                    nurtObjManager.PlayClockSound();
+                }
                 else if (lineStr == "hand in hand—we're running hand in hand—")
                     nurtObjManager.EnableHandMovie();
 
