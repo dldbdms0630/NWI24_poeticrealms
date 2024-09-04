@@ -8,7 +8,8 @@ public class NurtTitleText : MonoBehaviour
 {
     // public GameObject title;
     public GameObject pressAToAdvance;
-    public GameObject butterfly; 
+    //public GameObject butterfly; 
+    public GameObject portal; 
 
     public GameObject audioObj;
     // private AudioSource bgAudio; 
@@ -28,13 +29,15 @@ public class NurtTitleText : MonoBehaviour
         pressAToAdvance.SetActive(true);
     }
 
-    // Update is called once per frame
     void Update()
     {  // don't put gaze here cuz we don't necessarily need it for the title 
         if (inputData.rightController.TryGetFeatureValue(CommonUsages.primaryButton, out bool Abutton)) 
         {
+            // if (Abutton && ) { sceneName is freespirits butterfly.setactive(true) but if not 
+            //     butterfly.SetActive(true); // then butterfly will appear with default animation 
+            // }
             if (Abutton) {
-                butterfly.SetActive(true); // then butterfly will appear with default animation 
+                portal.SetActive(true);
             }
            
         }
