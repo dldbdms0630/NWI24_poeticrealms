@@ -53,6 +53,9 @@ public class VisionaryText : MonoBehaviour
 
     public GameObject blurShader;
 
+    [Header("testing converter")]
+    public ObjectConverter converter;
+
 
     // Start is called before the first frame update
     void Start()
@@ -103,6 +106,8 @@ void Update()
             {
                 Debug.Log("AAAAAAAAAAAAA THERE IS SPAZE");
                 toSpawn.SetActive(true);
+
+                converter.Convert();
 
             }
             else if(pair.text == "like frantic wishes at 11:11,")
