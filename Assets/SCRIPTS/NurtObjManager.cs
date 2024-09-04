@@ -66,9 +66,10 @@ public class NurtObjManager : MonoBehaviour
         sceneName = SceneManager.GetActiveScene().name;
 
         if (sceneName == "Nurturers")
+        {
             nurtBgMusic = firstStanza.GetComponent<AudioSource>();
             clockSound = clock.GetComponent<AudioSource>();
-
+        }
 
         // } else if (sceneName == "NoFunNurt") {
         //     finalBgMusic = firstStanza.GetComponent<AudioSource>();

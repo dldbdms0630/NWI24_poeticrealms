@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR;
+using UnityEngine.SceneManagement;
+
 
 public class NurtTitleText : MonoBehaviour
 {
     // public GameObject title;
     public GameObject pressAToAdvance;
-    //public GameObject butterfly; 
+    public GameObject butterfly; 
     public GameObject portal; 
 
     public GameObject audioObj;
     // private AudioSource bgAudio; 
     private InputData inputData;
+    private string sceneName;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +24,8 @@ public class NurtTitleText : MonoBehaviour
         inputData = GetComponent<InputData>();
         // bgAudio = audioObj.GetComponent<AudioSource>();
         StartCoroutine(WaitSeconds());
+        sceneName = SceneManager.GetActiveScene().name;
+
     }
 
     IEnumerator WaitSeconds() {
@@ -36,8 +41,10 @@ public class NurtTitleText : MonoBehaviour
             // if (Abutton && ) { sceneName is freespirits butterfly.setactive(true) but if not 
             //     butterfly.SetActive(true); // then butterfly will appear with default animation 
             // }
-            if (Abutton) {
+            if (Abutton && sceneName == "Nurturers") {
                 portal.SetActive(true);
+            } else if (Abutton && sceneName == "Freespirits") {
+                butterfly.SetActive(true);
             }
            
         }
