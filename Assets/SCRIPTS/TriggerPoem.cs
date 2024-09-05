@@ -66,6 +66,10 @@ public class TriggerPoem : MonoBehaviour
                 // canAdvanceText = false;
                 nurtObjManager.StartCoroutine(nurtObjManager.EnableComputerEvent());
         }
+        else if (sceneName == "Freespirits") {
+            if (initialText == "I wonder—you consoled me")
+                fsObjManager.StartCoroutine(fsObjManager.EnableComputerEvent());
+        }
 
     }
 
@@ -79,6 +83,7 @@ public class TriggerPoem : MonoBehaviour
             lineText = lines[idx].GetComponent<TextMeshPro>();
             lineStr = NormalizeText(lineText.text);
             
+
             yield return new WaitForSeconds(audioSource.clip.length);
 
             if (sceneName == "Nurturers") {
@@ -131,11 +136,47 @@ public class TriggerPoem : MonoBehaviour
                     yield return new WaitForSeconds(3);
                     nurtObjManager.StartCoroutine(nurtObjManager.GoToLastStanza());
                 }
+
+
+
+
             } else if (sceneName == "Freespirits") {
                 if (lineStr == "my mistake.") {
                     yield return new WaitForSeconds(1);
                     fsObjManager.MoveButterflyToDisco(); 
                 }
+                else if (lineStr == "your seashells-don't-rust eyes.") {
+                    yield return new WaitForSeconds(1);
+                    fsObjManager.MoveButterflyToWishingWell();
+                }
+                else if (lineStr == "with raw faith, with silent love—") {
+                    yield return new WaitForSeconds(1);
+                    fsObjManager.MoveButterflyToStreetLight();
+                }
+                else if (lineStr == "hand in hand—we're running hand in hand—")
+                {
+                    fsObjManager.TurnStreetLightOn();
+                }
+                else if (lineStr == "your breath is certain & we keep running.") {
+                    yield return new WaitForSeconds(1);
+                    fsObjManager.MoveButterflyToMailBox();
+                }
+                else if (lineStr == "why do I hold you like you will slip away?") {
+                    fsObjManager.EnableHandTrail();
+                    yield return new WaitForSeconds(1); 
+                    fsObjManager.MoveButterflyToComp();
+                }
+                else if (lineStr == "where have you gone to?")
+                {
+                    yield return new WaitForSeconds(1);
+                    fsObjManager.MoveButterflyToMirror();
+                }
+                else if (lineStr == "like I-see-you-in-every-single-smiley—") {
+                    fsObjManager.EnableDoor();
+                    yield return new WaitForSeconds(2);
+                    fsObjManager.FinalDoor();
+                }
+
             }
             idx++;
         } else {

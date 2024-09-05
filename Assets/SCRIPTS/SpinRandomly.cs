@@ -27,6 +27,9 @@ public class SpinRandomly : MonoBehaviour
             // spin to the right
             transform.Rotate(Vector3.back, spinSpeed * Time.deltaTime);
 
+        } else {
+            transform.Rotate(Vector3.up * 3f * Time.deltaTime, Space.Self);
+
         }
     }
 }
