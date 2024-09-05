@@ -19,7 +19,7 @@ public class FSObjManager : MonoBehaviour
 
     public GameObject streetLight;
     public Material streetLightMat;
-    public AnimationClip toDoorClip; 
+    public AnimationClip toDoorClip;
     public GameObject whiteDoor; 
 
     
@@ -86,11 +86,11 @@ public class FSObjManager : MonoBehaviour
     }
 
     private IEnumerator PlayFinalDoorSequence()
-{
-    anim.Play("toDoor");
-    yield return new WaitForSeconds(toDoorClip.length); // Wait for the toDoor animation to finish
-    anim.Play("circleDoor");
-}
+    {
+        anim.Play("toDoor");
+        yield return new WaitForSeconds(toDoorClip.length); // Wait for the toDoor animation to finish
+        anim.Play("circleDoor");
+    }
 
 
 
