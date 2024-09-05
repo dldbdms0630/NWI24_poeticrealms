@@ -88,6 +88,8 @@ public class VisionaryText : MonoBehaviour
         toSpawn2.SetActive(false);
         //bgMusicToStart.SetActive(false);
         allshells.SetActive(false);
+        
+        //UNCOMMENT THIS COMMENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         stars.SetActive(false);
         handParticles.SetActive(false);
         IWAKEUP.SetActive(false);
@@ -143,14 +145,14 @@ void Update()
     /// maybe make it where the user faces at the time
     /// deathtouch implement
     /// sounds for shooting stasrs
-    /// transition for shells to clocks + shell spawn!!!!
     /// sound of running
     /// 
-    /// do slide projector transitions outside of yooeun talking
-    /// also turn them down
-    /// also get the clock ticking sound as an audiosource
+    /// no skipping dreamed of you last night
+    /// add running sound for ran away from robots
+    /// new seashsells
+    /// whiteboard sound effect for foggy glass
     /// 
-    /// God prayer line, add a light source??
+    /// 
     /// subtle twinkle sound 
     /// 
     /// </summary>
@@ -189,6 +191,7 @@ void Update()
             if (pair.text == "it's all you.")
             {
                 quadRenderer.enabled = true;
+                allshells.SetActive(false);
                 yield return new WaitForSeconds(1);
             }
 
@@ -280,6 +283,7 @@ void Update()
                 //bgMusicToStart.Pause();
 
                 ITSALLYOU.SetActive(true);
+
             }
             i++;
             
