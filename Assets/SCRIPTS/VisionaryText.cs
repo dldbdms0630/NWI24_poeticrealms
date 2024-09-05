@@ -168,7 +168,7 @@ void Update()
             poemSound.clip = pair.audioClip;
 
             //weird special cases, cuz these have to happen before yooeun talks lmao
-            if (pair.text == "Let ‘em hear the hymns of your searching-fearless eyes,")
+            if (pair.text == "Let ï¿½em hear the hymns of your searching-fearless eyes,")
             {
                 quadRenderer.enabled = true;
                 projector1.Play();
@@ -197,14 +197,14 @@ void Update()
 
             poemSound.Play();
 
-            if(pair.text == "We ran away from robots—those brainsick bots— ")
+            if(pair.text == "We ran away from robotsï¿½those brainsick botsï¿½ ")
             {
                 //toSpawn.SetActive(true);
 
                 //converter.Convert();
 
             }
-            else if(pair.text == "Let ‘em hear the hymns of your searching-fearless eyes,")
+            else if(pair.text == "Let ï¿½em hear the hymns of your searching-fearless eyes,")
             {
                 //special case
                 allshells.SetActive(true);
@@ -214,18 +214,18 @@ void Update()
                 //special case
             }
             //hand sparkle particles turn on, until "we keep running"
-            else if(pair.text == "hand in hand—we’re running hand in hand—")
+            else if(pair.text == "hand in handï¿½weï¿½re running hand in handï¿½")
             {
                 Debug.Log("activate hand");
                 handParticles.SetActive(true);
                 hapticsOn = true;
             }
-            else if(pair.text == "‘cause you never did great with the")
+            else if(pair.text == "ï¿½cause you never did great with the")
             {
                 handParticles.SetActive(false);
                 hapticsOn = false;
             }
-            else if(pair.text == "have our prayers reached the right destination—to our God?")
+            else if(pair.text == "have our prayers reached the right destinationï¿½to our God?")
             {
                 //lightScreen.SetActive(true);
                 lightScreenAnim.SetTrigger("startFade");
@@ -243,7 +243,7 @@ void Update()
                 Vector3 playerEulerAngles = playerTransform.eulerAngles;
                 stars.transform.rotation = Quaternion.Euler(0, playerEulerAngles.y, 0);
             }
-            else if(pair.text == "like I-see-you-in-every-single smiley—")
+            else if(pair.text == "like I-see-you-in-every-single smileyï¿½")
             {
                 smileyparticles.Play();
             }
@@ -268,7 +268,7 @@ void Update()
 
                 ALLYOURFAULT.SetActive(true);
             }
-            else if (pair.text == "No, scratch that—")
+            else if (pair.text == "No, scratch thatï¿½")
             {
                 ALLYOURFAULT.SetActive(false);
                 bgMusicToStart.UnPause();
