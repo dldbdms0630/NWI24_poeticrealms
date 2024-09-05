@@ -3,15 +3,14 @@ using UnityEngine;
 public class ObjectConverter : MonoBehaviour
 {
     public GameObject originalObject; // The object to be converted
-    public GameObject targetObjectPrefab; // The prefab of the object to convert into
+    public GameObject targetObject; // The prefab of the object to convert into
     public bool destroyOriginal = true; // Optional: set a flag to destroy the original object
 
     public void Convert()
     {
-        if (originalObject != null && targetObjectPrefab != null)
+        if (originalObject != null && targetObject != null)
         {
-            originalObject.SetActive(false);
-            targetObjectPrefab.SetActive(true);
+            targetObject.SetActive(true);
             
             // Store the original object's position, rotation, velocity, and angular velocity
             Vector3 position = originalObject.transform.position;
@@ -27,11 +26,14 @@ public class ObjectConverter : MonoBehaviour
                 angularVelocity = originalRb.angularVelocity;
             }
 
+            targetObject.transform.position = position;
+            targetObject.transform.rotation = rotation;
+
             // Instantiate the target object at the original object's position and rotation
-            GameObject newObject = Instantiate(targetObjectPrefab, position, rotation);
+            //GameObject newObject = Instantiate(targetObjectPrefab, position, rotation);
 
             // If the new object has a Rigidbody, apply the stored velocity and angular velocity
-            Rigidbody newRb = newObject.GetComponent<Rigidbody>();
+            Rigidbody newRb = targetObject.GetComponent<Rigidbody>();
             if (newRb != null)
             {
                 newRb.velocity = velocity;
@@ -42,6 +44,9 @@ public class ObjectConverter : MonoBehaviour
             if (destroyOriginal)
             {
                 Destroy(originalObject);
+                //Destroy(targetObjectPrefab);
+                //targetObject.SetActive(false);
+                originalObject.SetActive(false);
             }
         }
         else
