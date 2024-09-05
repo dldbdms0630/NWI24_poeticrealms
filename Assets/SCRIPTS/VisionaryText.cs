@@ -61,6 +61,10 @@ public class VisionaryText : MonoBehaviour
     public GameObject handParticles;
     private bool hapticsOn = false;
 
+    [Header("have our prayers")]
+    public GameObject lightScreen;
+    public Animator lightScreenAnim;
+
     [Header("i wake up ... (final part)")]
     public GameObject IWAKEUP;
     public GameObject ALONEIWHISPER;
@@ -88,6 +92,10 @@ public class VisionaryText : MonoBehaviour
         handParticles.SetActive(false);
         IWAKEUP.SetActive(false);
         starparticles.Play();
+        lightScreen.SetActive(true);
+        lightScreenAnim = lightScreen.GetComponent<Animator>();
+
+        //lightScreen.SetActive(false);
 
         poemSound = textObj.GetComponent<AudioSource>();
         quadDisableSound = visionBlockQuad.GetComponent<AudioSource>();
@@ -134,15 +142,17 @@ void Update()
     /// sounds for shooting stasrs
     /// maybe make it where the user faces at the time
     /// deathtouch implement
-    /// mute music for its all you?
     /// sounds for shooting stasrs
     /// transition for shells to clocks + shell spawn!!!!
+    /// sound of running
     /// 
     /// do slide projector transitions outside of yooeun talking
     /// also turn them down
     /// also get the clock ticking sound as an audiosource
     /// 
     /// God prayer line, add a light source??
+    /// subtle twinkle sound 
+    /// 
     /// </summary>
     /// <returns></returns>
 
@@ -212,8 +222,18 @@ void Update()
                 handParticles.SetActive(false);
                 hapticsOn = false;
             }
+            else if(pair.text == "have our prayers reached the right destination—to our God?")
+            {
+                //lightScreen.SetActive(true);
+                lightScreenAnim.SetTrigger("startFade");
+            }
+            else if(pair.text == "why do I hold you like you will slip away?")
+            {
+                lightScreenAnim.SetTrigger("endFade");
+            }
             else if(pair.text == "telling me to trust you over our 32-percent-compatibility,")
             {
+                //lightScreen.SetActive(false);
                 stars.SetActive(true);
 
                 // Only match the Y axis rotation (for horizontal rotation)
@@ -257,7 +277,7 @@ void Update()
             else if(pair.text == "it's all you.")
             {
                 //SCRATCHTHAT.SetActive(false);
-                bgMusicToStart.Pause();
+                //bgMusicToStart.Pause();
 
                 ITSALLYOU.SetActive(true);
             }
