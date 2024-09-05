@@ -202,9 +202,10 @@ public class TriggerPoem : MonoBehaviour
         } else {
             isStanzaDone = true;
             PoemManager.EndPoem();
-
+            isFirstTrigger = true;
         }
         yield return new WaitForSeconds(0.5f); // Debounce delay
+        PoemManager.EndPoem();
 
         canAdvanceText = true; // Allow next trigger
     }
