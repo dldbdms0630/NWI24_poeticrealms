@@ -83,6 +83,7 @@ public class TriggerPoem : MonoBehaviour
             lineText = lines[idx].GetComponent<TextMeshPro>();
             lineStr = NormalizeText(lineText.text);
             
+
             yield return new WaitForSeconds(audioSource.clip.length);
 
             if (sceneName == "Nurturers") {
@@ -162,6 +163,8 @@ public class TriggerPoem : MonoBehaviour
                 }
                 else if (lineStr == "why do I hold you like you will slip away?") {
                     fsObjManager.EnableHandTrail();
+                    yield return new WaitForSeconds(1); 
+                    fsObjManager.MoveButterflyToComp();
                 }
                 else if (lineStr == "where have you gone to?")
                 {

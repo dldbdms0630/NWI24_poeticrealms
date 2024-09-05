@@ -39,7 +39,7 @@ public class FSObjManager : MonoBehaviour
 
     public void MoveButterflyToDisco()
     {
-        anim.Play("first stump to second stump");
+        anim.Play("toStump");
     }
 
     public void MoveButterflyToWishingWell()
@@ -53,6 +53,8 @@ public class FSObjManager : MonoBehaviour
         streetLightMat.EnableKeyword("_EMISSION");
         streetLightMat.globalIlluminationFlags = MaterialGlobalIlluminationFlags.None;
     }
+
+
     public void MoveButterflyToStreetLight()
     {
         anim.Play("toStreetLight");
@@ -70,6 +72,7 @@ public class FSObjManager : MonoBehaviour
 
     public void MoveButterflyToComp()
     {
+        // anim.Play("toComputer");
         anim.Play("toComp");
     }
 
