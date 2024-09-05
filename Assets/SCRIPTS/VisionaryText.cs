@@ -63,7 +63,10 @@ public class VisionaryText : MonoBehaviour
 
     [Header("have our prayers")]
     public GameObject lightScreen;
-    public Animator lightScreenAnim;
+    private Animator lightScreenAnim;
+
+    [Header("flutter stomach rides")]
+    public AudioSource rollercoastersound;
 
     [Header("i wake up ... (final part)")]
     public GameObject IWAKEUP;
@@ -88,8 +91,8 @@ public class VisionaryText : MonoBehaviour
         toSpawn2.SetActive(false);
         //bgMusicToStart.SetActive(false);
         allshells.SetActive(false);
-        
-        //UNCOMMENT THIS COMMENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+        // UNCOMMMENET ALLALEREYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
         stars.SetActive(false);
         handParticles.SetActive(false);
         IWAKEUP.SetActive(false);
@@ -144,12 +147,9 @@ void Update()
     /// sounds for shooting stasrs
     /// maybe make it where the user faces at the time
     /// deathtouch implement
-    /// sounds for shooting stasrs
     /// sound of running
     /// 
-    /// no skipping dreamed of you last night
     /// add running sound for ran away from robots
-    /// new seashsells
     /// whiteboard sound effect for foggy glass
     /// 
     /// 
@@ -197,69 +197,74 @@ void Update()
 
             poemSound.Play();
 
-            if(pair.text == "We ran away from robots—those brainsick bots— ")
+            if (pair.text == "We ran away from robots—those brainsick bots— ")
             {
                 //toSpawn.SetActive(true);
 
                 //converter.Convert();
 
             }
-            else if(pair.text == "Let ‘em hear the hymns of your searching-fearless eyes,")
+            else if (pair.text == "Let ‘em hear the hymns of your searching-fearless eyes,")
             {
                 //special case
                 allshells.SetActive(true);
             }
-            else if(pair.text == "like frantic wishes at 11:11,")
+            else if (pair.text == "like frantic wishes at 11:11,")
             {
                 //special case
             }
             //hand sparkle particles turn on, until "we keep running"
-            else if(pair.text == "hand in hand—we’re running hand in hand—")
+            else if (pair.text == "hand in hand—we’re running hand in hand—")
             {
                 Debug.Log("activate hand");
                 handParticles.SetActive(true);
                 hapticsOn = true;
             }
-            else if(pair.text == "‘cause you never did great with the")
+            else if (pair.text == "‘cause you never did great with the")
             {
                 handParticles.SetActive(false);
                 hapticsOn = false;
+                rollercoastersound.Play();
             }
-            else if(pair.text == "have our prayers reached the right destination—to our God?")
+            else if (pair.text == "flutter-stomach-rides, but")
+            {
+                //rollercoastersound.Play();
+            }
+            else if (pair.text == "have our prayers reached the right destination—to our God?")
             {
                 //lightScreen.SetActive(true);
                 lightScreenAnim.SetTrigger("startFade");
             }
-            else if(pair.text == "why do I hold you like you will slip away?")
+            else if (pair.text == "why do I hold you like you will slip away?")
             {
                 lightScreenAnim.SetTrigger("endFade");
             }
-            else if(pair.text == "telling me to trust you over our 32-percent-compatibility,")
+            else if (pair.text == "telling me to trust you over our 32-percent-compatibility,")
             {
                 //lightScreen.SetActive(false);
                 stars.SetActive(true);
 
                 // Only match the Y axis rotation (for horizontal rotation)
                 Vector3 playerEulerAngles = playerTransform.eulerAngles;
-                stars.transform.rotation = Quaternion.Euler(0, playerEulerAngles.y, 0);
+                stars.transform.rotation = Quaternion.Euler(0, (playerEulerAngles.y), 0);
             }
-            else if(pair.text == "like I-see-you-in-every-single smiley—")
+            else if (pair.text == "like I-see-you-in-every-single smiley—")
             {
                 smileyparticles.Play();
             }
             //this is a really roundabout way of doing this but ig it works 
-            else if(pair.text == "I wake up, my hand casted in the shape of us.")
+            else if (pair.text == "I wake up, my hand casted in the shape of us.")
             {
                 smileyparticles.Stop();
                 //blurShader.SetActive(true);
                 //IWAKEUP.SetActive(true);
             }
-            else if(pair.text == "Alone, I whisper,")
+            else if (pair.text == "Alone, I whisper,")
             {
                 //IWAKEUP.SetActive(false);
                 //ALONEIWHISPER.SetActive(true);
             }
-            else if(pair.text == "it's all your fault.")
+            else if (pair.text == "it's all your fault.")
             {
                 //ALONEIWHISPER.SetActive(false);
 
@@ -277,7 +282,7 @@ void Update()
 
                 //SCRATCHTHAT.SetActive(true);
             }
-            else if(pair.text == "it's all you.")
+            else if (pair.text == "it's all you.")
             {
                 //SCRATCHTHAT.SetActive(false);
                 //bgMusicToStart.Pause();
