@@ -19,16 +19,16 @@ public class VisionaryText : MonoBehaviour
     public GameObject textObj; // text object for poem 
     public XRBaseController controllerR;
     public Transform playerTransform;
-    
+
     public GameObject toSpawn;
     public GameObject toSpawn2;
 
     private TextMeshPro textTMP;
     private bool canAdvanceText = true; // for controlling timing of interactions and text
     private InputData inputData;
-    private AudioSource poemSound; 
+    private AudioSource poemSound;
 
-    private AudioSource quadDisableSound; 
+    private AudioSource quadDisableSound;
     private MeshRenderer quadRenderer; // do quadRenderer.enabled = false; instead of quad.SetActive(false); bc that'll end the quad audio as well 
 
     private int i = 0; // for counting index 
@@ -113,7 +113,7 @@ public class VisionaryText : MonoBehaviour
 
         //THIS IS JSUT FOR TSTING USING THE SIMULATOR PLEASE DELETE THIS BEFORE THE THING ENDS !!!!!!!!!!!!!!!!!!!!!!!
         //StartCoroutine(ChangeText());
-        
+
 
     }
 
@@ -122,19 +122,26 @@ public class VisionaryText : MonoBehaviour
         quadDisableSound.Play();
         yield return new WaitForSeconds(0.3f);
         quadRenderer.enabled = false;
-        
+
         DREAMEDOFYOULASTNIGHT.SetActive(false);
         //yield return new WaitForSeconds(1f);
         //bgMusicToStart.SetActive(true);
-}
+    }
 
-void Update()
+    void Update()
     {
+        /*if (!poemSound.isPlaying && canAdvanceText)
+        {
+            StartCoroutine(ChangeText());
+        }*/
+
+        
         if (inputData.rightController.TryGetFeatureValue(CommonUsages.primaryButton, out bool Abutton)) {
             if (Abutton && !poemSound.isPlaying && canAdvanceText) {
                 StartCoroutine(ChangeText());
             }
         }
+        
 
         if (hapticsOn)
         {
@@ -168,7 +175,7 @@ void Update()
             poemSound.clip = pair.audioClip;
 
             //weird special cases, cuz these have to happen before yooeun talks lmao
-            if (pair.text == "Let �em hear the hymns of your searching-fearless eyes,")
+            if (pair.text == "Let 'em hear the hymns of your searching-fearless eyes,")
             {
                 quadRenderer.enabled = true;
                 projector1.Play();
@@ -197,14 +204,14 @@ void Update()
 
             poemSound.Play();
 
-            if (pair.text == "We ran away from robots�those brainsick bots� ")
+            if (pair.text == "We ran away from robots—those brainsick bots— ")
             {
                 //toSpawn.SetActive(true);
 
                 //converter.Convert();
 
             }
-            else if (pair.text == "Let �em hear the hymns of your searching-fearless eyes,")
+            else if (pair.text == "Let 'em hear the hymns of your searching-fearless eyes,")
             {
                 //special case
                 allshells.SetActive(true);
@@ -214,13 +221,13 @@ void Update()
                 //special case
             }
             //hand sparkle particles turn on, until "we keep running"
-            else if (pair.text == "hand in hand�we�re running hand in hand�")
+            else if (pair.text == "hand in hand—we're running hand in hand—")
             {
                 Debug.Log("activate hand");
                 handParticles.SetActive(true);
                 hapticsOn = true;
             }
-            else if (pair.text == "�cause you never did great with the")
+            else if (pair.text == "'cause you never did great with the")
             {
                 handParticles.SetActive(false);
                 hapticsOn = false;
@@ -230,7 +237,7 @@ void Update()
             {
                 //rollercoastersound.Play();
             }
-            else if (pair.text == "have our prayers reached the right destination�to our God?")
+            else if (pair.text == "have our prayers reached the right destination—to our God?")
             {
                 //lightScreen.SetActive(true);
                 lightScreenAnim.SetTrigger("startFade");
@@ -248,7 +255,7 @@ void Update()
                 Vector3 playerEulerAngles = playerTransform.eulerAngles;
                 stars.transform.rotation = Quaternion.Euler(0, (playerEulerAngles.y), 0);
             }
-            else if (pair.text == "like I-see-you-in-every-single smiley�")
+            else if (pair.text == "like I-see-you-in-every-single smiley—")
             {
                 smileyparticles.Play();
             }
@@ -273,7 +280,7 @@ void Update()
 
                 ALLYOURFAULT.SetActive(true);
             }
-            else if (pair.text == "No, scratch that�")
+            else if (pair.text == "No, scratch that—")
             {
                 ALLYOURFAULT.SetActive(false);
                 bgMusicToStart.UnPause();
