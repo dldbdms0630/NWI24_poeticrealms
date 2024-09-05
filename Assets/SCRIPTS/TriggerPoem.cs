@@ -8,21 +8,21 @@ using UnityEngine.SceneManagement;
 
 public class TriggerPoem : MonoBehaviour
 {
-    public class PoemManager : MonoBehaviour
-    {
-        // Static instance to keep track globally
-        public static bool isPoemActive = false;
+    // public class PoemManager : MonoBehaviour
+    // {
+    //     // Static instance to keep track globally
+    //     public static bool isPoemActive = false;
 
-        // Call this when a new poem starts
-        public static void StartPoem() {
-            isPoemActive = true;
-        }
+    //     // Call this when a new poem starts
+    //     public static void StartPoem() {
+    //         isPoemActive = true;
+    //     }
 
-        // Call this when the current poem finishes
-        public static void EndPoem() {
-            isPoemActive = false;
-        }
-    }
+    //     // Call this when the current poem finishes
+    //     public static void EndPoem() {
+    //         isPoemActive = false;
+    //     }
+    // }
 
     public GameObject basePoem;
     private TextMeshPro poemText;
@@ -63,7 +63,7 @@ public class TriggerPoem : MonoBehaviour
     IEnumerator HandleInitialText() {
         string initialText = NormalizeText(poemText.text);
         yield return new WaitForSeconds(audioSource.clip.length);
-        // isStanzaDone = false; 
+        isStanzaDone = false; 
 
 
         if (sceneName == "Nurturers") {
@@ -201,11 +201,11 @@ public class TriggerPoem : MonoBehaviour
             idx++;
         } else {
             isStanzaDone = true;
-            PoemManager.EndPoem();
+            // PoemManager.EndPoem();
             isFirstTrigger = true;
         }
         yield return new WaitForSeconds(0.5f); // Debounce delay
-        PoemManager.EndPoem();
+        // PoemManager.EndPoem();
 
         canAdvanceText = true; // Allow next trigger
     }
@@ -216,17 +216,17 @@ public class TriggerPoem : MonoBehaviour
         Debug.Log("Triggered by: " + collision.gameObject.name);
 
         if (collision.gameObject.tag == "MainCamera" && isFirstTrigger) {
-            if (PoemManager.isPoemActive) {
-                Debug.Log("Poem already active .");
+            // if (PoemManager.isPoemActive) {
+            //     Debug.Log("Poem already active .");
 
-                return; // Do nothing if a poem is already active
-            }
+            //     return; // Do nothing if a poem is already active
+            // }
 
-            Debug.Log("Starting new poem...");
+            // Debug.Log("Starting new poem...");
 
             isFirstTrigger = false; // to prevent multiple triggers 
 
-            PoemManager.StartPoem();
+            // PoemManager.StartPoem();
 
 
             basePoem.SetActive(true); // when basePoem is enabled, the animation will play, as well as the poem associated with it
