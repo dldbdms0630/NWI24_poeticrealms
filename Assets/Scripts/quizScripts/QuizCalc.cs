@@ -98,8 +98,6 @@ public class QuizCalc : MonoBehaviour
             //SceneManager.LoadScene("Freespirits");
             return 2;
         }
-        
-        Debug.Log("load the scenes now lmao");
     }
 
 }
