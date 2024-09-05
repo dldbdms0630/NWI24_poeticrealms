@@ -36,6 +36,7 @@ public class CoinGrab : MonoBehaviour
         particles.SetActive(false);
         coinSound = gameObject.GetComponent<AudioSource>();
         SpawnPosition = new Vector3(54.87f, 1.48f, 61.75f);
+        // SpawnPosition = new Vector3(66.0f, 1.48f, 63f);
         wishingSound = wishingWell.GetComponent<AudioSource>();
 
         //SpawnPosition = new Vector3(50.05f, 0.73f, 62.59f);

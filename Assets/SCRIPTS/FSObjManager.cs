@@ -1,21 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR;
 
 public class FSObjManager : MonoBehaviour
 {
     public GameObject butterfly; 
+    public XRBaseController controllerR;
 
-    //public AnimationClip initialCircle; // don't think we need this? 
-    // public AnimationClip toFirstStanza;
-    // private string toEyesStanza;
-    // private string toWishingWell; 
-    // private string toStreetLight;
-    // private string toMailBox;
-    // private string toCompatibility;
-    // private string toMirror; 
-    // private string toDoor;
-    // private string circlingDoor;
 
     public GameObject streetLight;
     public Material streetLightMat;
@@ -23,6 +16,7 @@ public class FSObjManager : MonoBehaviour
     public GameObject whiteDoor; 
     public GameObject computerScreen;
     public Material compatibilityMat;
+    public GameObject handTrail;
 
 
     
@@ -30,6 +24,8 @@ public class FSObjManager : MonoBehaviour
     private Animation anim;
     private AudioSource phoneAlarm; 
     private AudioSource objAudio;
+    private bool hapticsOn = false; 
+
 
     void Start()
     {
@@ -37,9 +33,21 @@ public class FSObjManager : MonoBehaviour
         phoneAlarm = whiteDoor.GetComponent<AudioSource>();
     }
 
+    void Update()
+    {
+        if (hapticsOn)
+        {
+            controllerR.SendHapticImpulse(0.02f, 0.1f);
+        }
+    }
     public void MoveButterflyToDisco()
     {
         anim.Play("toStump");
+    }
+
+    public void MoveToSecondStump()
+    {
+        anim.Play("toSecondStump");
     }
 
     public void MoveButterflyToWishingWell()
@@ -51,7 +59,9 @@ public class FSObjManager : MonoBehaviour
     {
         streetLight.SetActive(true);
         streetLightMat.EnableKeyword("_EMISSION");
-        streetLightMat.globalIlluminationFlags = MaterialGlobalIlluminationFlags.None;
+        streetLightMat.SetColor("_EmissionColor", Color.white * 2f); // Change '2f' to your desired intensity
+
+        streetLightMat.globalIlluminationFlags = MaterialGlobalIlluminationFlags.BakedEmissive;
     }
 
 
@@ -67,7 +77,14 @@ public class FSObjManager : MonoBehaviour
 
     public void EnableHandTrail()
     {
-        return; 
+        hapticsOn = true; 
+        handTrail.SetActive(true);
+    }
+
+    public void DisableHandTrail()
+    {
+        hapticsOn = false; 
+        handTrail.SetActive(false);
     }
 
     public void MoveButterflyToComp()

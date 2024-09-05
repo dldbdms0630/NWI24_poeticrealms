@@ -10,6 +10,8 @@ public class PortalActivator : MonoBehaviour
 {
     public GameObject basePoem;
     public GameObject[] lines;
+    public GameObject butterfly;
+    public GameObject doorFrame;
     private TextMeshPro lineText;    
         private int idx = 0;
 
@@ -72,6 +74,8 @@ public class PortalActivator : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         basePoem.SetActive(true);
+        doorFrame.SetActive(false);
+        butterfly.SetActive(false);
 
     }
 
