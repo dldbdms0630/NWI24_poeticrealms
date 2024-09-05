@@ -66,6 +66,10 @@ public class TriggerPoem : MonoBehaviour
                 // canAdvanceText = false;
                 nurtObjManager.StartCoroutine(nurtObjManager.EnableComputerEvent());
         }
+        else if (sceneName == "Freespirits") {
+            if (initialText == "I wonder—you consoled me")
+                fsObjManager.StartCoroutine(fsObjManager.EnableComputerEvent());
+        }
 
     }
 
@@ -131,6 +135,10 @@ public class TriggerPoem : MonoBehaviour
                     yield return new WaitForSeconds(3);
                     nurtObjManager.StartCoroutine(nurtObjManager.GoToLastStanza());
                 }
+
+
+
+
             } else if (sceneName == "Freespirits") {
                 if (lineStr == "my mistake.") {
                     yield return new WaitForSeconds(1);

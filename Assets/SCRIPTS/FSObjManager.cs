@@ -21,11 +21,15 @@ public class FSObjManager : MonoBehaviour
     public Material streetLightMat;
     public AnimationClip toDoorClip;
     public GameObject whiteDoor; 
+    public GameObject computerScreen;
+    public Material compatibilityMat;
+
 
     
 
     private Animation anim;
     private AudioSource phoneAlarm; 
+    private AudioSource objAudio;
 
     void Start()
     {
@@ -69,11 +73,22 @@ public class FSObjManager : MonoBehaviour
         anim.Play("toComp");
     }
 
+    public IEnumerator EnableComputerEvent()
+    {
+        objAudio = computerScreen.GetComponent<AudioSource>();
+        objAudio.Play();
+        yield return new WaitForSeconds(2);
+
+        computerScreen.GetComponent<MeshRenderer>().material = compatibilityMat;
+    }
+
+
     public void MoveButterflyToMirror()
     {
         anim.Play("toMirror");
         
-    }  
+    }
+
 
     public void EnableDoor()
     {
