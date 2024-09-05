@@ -12,11 +12,15 @@ public class NurtTitleText : MonoBehaviour
     public GameObject pressAToAdvance;
     public GameObject butterfly; 
     public GameObject portal; 
+    // public GameObject testCube;
 
     public GameObject audioObj;
     // private AudioSource bgAudio; 
     private InputData inputData;
+    private Animation anim;
     private string sceneName;
+    private bool firstTrigger = true; 
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +29,7 @@ public class NurtTitleText : MonoBehaviour
         // bgAudio = audioObj.GetComponent<AudioSource>();
         StartCoroutine(WaitSeconds());
         sceneName = SceneManager.GetActiveScene().name;
+        anim = butterfly.GetComponent<Animation>();
 
     }
 
@@ -43,8 +48,10 @@ public class NurtTitleText : MonoBehaviour
             // }
             if (Abutton && sceneName == "Nurturers") {
                 portal.SetActive(true);
-            } else if (Abutton && sceneName == "Freespirits") {
-                butterfly.SetActive(true);
+            } else if (Abutton && firstTrigger && sceneName == "Freespirits") {
+                // testCube.SetActive(true);
+                anim.Play("beginning to first stump");
+                firstTrigger = false; 
             }
            
         }

@@ -136,6 +136,36 @@ public class TriggerPoem : MonoBehaviour
                     yield return new WaitForSeconds(1);
                     fsObjManager.MoveButterflyToDisco(); 
                 }
+                else if (lineStr == "your seashells-don't-rust eyes.") {
+                    yield return new WaitForSeconds(1);
+                    fsObjManager.MoveButterflyToWishingWell();
+                }
+                else if (lineStr == "with raw faith, with silent love—") {
+                    yield return new WaitForSeconds(1);
+                    fsObjManager.MoveButterflyToStreetLight();
+                }
+                else if (lineStr == "hand in hand—we're running hand in hand—")
+                {
+                    fsObjManager.TurnStreetLightOn();
+                }
+                else if (lineStr == "your breath is certain & we keep running.") {
+                    yield return new WaitForSeconds(1);
+                    fsObjManager.MoveButterflyToMailBox();
+                }
+                else if (lineStr == "why do I hold you like you will slip away?") {
+                    fsObjManager.EnableHandTrail();
+                }
+                else if (lineStr == "where have you gone to?")
+                {
+                    yield return new WaitForSeconds(1);
+                    fsObjManager.MoveButterflyToMirror();
+                }
+                else if (lineStr == "like I-see-you-in-every-single-smiley—") {
+                    fsObjManager.EnableDoor();
+                    yield return new WaitForSeconds(2);
+                    fsObjManager.FinalDoor();
+                }
+
             }
             idx++;
         } else {
