@@ -59,7 +59,8 @@ public class FSObjManager : MonoBehaviour
     {
         streetLight.SetActive(true);
         streetLightMat.EnableKeyword("_EMISSION");
-        streetLightMat.SetColor("_EmissionColor", Color.white * 2f); // Change '2f' to your desired intensity
+        Color orangeColor = new Color(1.0f, 0.4738789f, 0.0f); // RGB values for orange
+        streetLightMat.SetColor("_EmissionColor", orangeColor * 1.4f);
 
         streetLightMat.globalIlluminationFlags = MaterialGlobalIlluminationFlags.BakedEmissive;
     }
