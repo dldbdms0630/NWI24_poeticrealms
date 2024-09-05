@@ -8,6 +8,22 @@ using UnityEngine.SceneManagement;
 
 public class TriggerPoem : MonoBehaviour
 {
+    public class PoemManager : MonoBehaviour
+    {
+        // Static instance to keep track globally
+        public static bool isPoemActive = false;
+
+        // Call this when a new poem starts
+        public static void StartPoem() {
+            isPoemActive = true;
+        }
+
+        // Call this when the current poem finishes
+        public static void EndPoem() {
+            isPoemActive = false;
+        }
+    }
+
     public GameObject basePoem;
     private TextMeshPro poemText;
 
@@ -15,19 +31,15 @@ public class TriggerPoem : MonoBehaviour
     private TextMeshPro lineText;    
     private string lineStr;
 
-
     public NurtObjManager nurtObjManager;
-    public FSObjectManager fsObjManager;
+    public FSObjManager fsObjManager;
 
     private AudioSource audioSource; 
     private InputData inputData;
     private string sceneName;
     private GameObject obj;
     
-    // isGazed determines whether gaze raycast is colliding with text collider or not
-    // isStanzaDone is in place - WHY? what's the reason? 
-    // isFirstTrigger makes sure that the OnTrigger method is not triggered multiple times. 
-    // canAdvanceText - WHY???? 
+
     private bool isGazed = false, isStanzaDone = false, isFirstTrigger = true, canAdvanceText = true;
     private int idx = 0;
 
@@ -51,6 +63,7 @@ public class TriggerPoem : MonoBehaviour
     IEnumerator HandleInitialText() {
         string initialText = NormalizeText(poemText.text);
         yield return new WaitForSeconds(audioSource.clip.length);
+        // isStanzaDone = false; 
 
 
         if (sceneName == "Nurturers") {
@@ -67,6 +80,10 @@ public class TriggerPoem : MonoBehaviour
                 // canAdvanceText = false;
                 nurtObjManager.StartCoroutine(nurtObjManager.EnableComputerEvent());
         }
+        else if (sceneName == "Freespirits") {
+            if (initialText == "I wonder—you consoled me")
+                fsObjManager.StartCoroutine(fsObjManager.EnableComputerEvent());
+        }
 
     }
 
@@ -80,6 +97,7 @@ public class TriggerPoem : MonoBehaviour
             lineText = lines[idx].GetComponent<TextMeshPro>();
             lineStr = NormalizeText(lineText.text);
             
+
             yield return new WaitForSeconds(audioSource.clip.length);
 
             if (sceneName == "Nurturers") {
@@ -132,12 +150,62 @@ public class TriggerPoem : MonoBehaviour
                     yield return new WaitForSeconds(3);
                     nurtObjManager.StartCoroutine(nurtObjManager.GoToLastStanza());
                 }
+
+
+
+
+            } else if (sceneName == "Freespirits") {
+                if (lineStr == "ddddmy mistake.") {
+                    yield return new WaitForSeconds(1);
+                    fsObjManager.MoveButterflyToDisco(); 
+                }
+                else if (lineStr == "my mistake.")
+                {
+                    yield return new WaitForSeconds(1);
+                    fsObjManager.MoveToSecondStump();
+                }
+                else if (lineStr == "your seashells-don't-rust eyes.") {
+                    yield return new WaitForSeconds(1);
+                    fsObjManager.MoveButterflyToWishingWell();
+                }
+                else if (lineStr == "with raw faith, with silent love—") {
+                    yield return new WaitForSeconds(1);
+                    fsObjManager.MoveButterflyToStreetLight();
+                }
+                else if (lineStr == "hand in hand—we're running hand in hand—")
+                {
+                    fsObjManager.TurnStreetLightOn();
+                }
+                else if (lineStr == "your breath is certain & we keep running.") {
+                    yield return new WaitForSeconds(1);
+                    fsObjManager.MoveButterflyToMailBox();
+                }
+                else if (lineStr == "why do I hold you like you will slip away?") {
+                    fsObjManager.EnableHandTrail();
+                    yield return new WaitForSeconds(1); 
+                    fsObjManager.MoveButterflyToComp();
+                }
+                else if (lineStr == "where have you gone to?")
+                {
+                    fsObjManager.DisableHandTrail();
+                    yield return new WaitForSeconds(1);
+                    fsObjManager.MoveButterflyToMirror();
+                }
+                else if (lineStr == "like I-see-you-in-every-single-smiley—") {
+                    fsObjManager.EnableDoor();
+                    yield return new WaitForSeconds(2);
+                    fsObjManager.FinalDoor();
+                }
+
             }
             idx++;
         } else {
             isStanzaDone = true;
+            PoemManager.EndPoem();
+            isFirstTrigger = true;
         }
         yield return new WaitForSeconds(0.5f); // Debounce delay
+        PoemManager.EndPoem();
 
         canAdvanceText = true; // Allow next trigger
     }
@@ -145,8 +213,21 @@ public class TriggerPoem : MonoBehaviour
 
 
     private void OnTriggerEnter(Collider collision) {
+        Debug.Log("Triggered by: " + collision.gameObject.name);
+
         if (collision.gameObject.tag == "MainCamera" && isFirstTrigger) {
+            if (PoemManager.isPoemActive) {
+                Debug.Log("Poem already active .");
+
+                return; // Do nothing if a poem is already active
+            }
+
+            Debug.Log("Starting new poem...");
+
             isFirstTrigger = false; // to prevent multiple triggers 
+
+            PoemManager.StartPoem();
+
 
             basePoem.SetActive(true); // when basePoem is enabled, the animation will play, as well as the poem associated with it
 
@@ -180,35 +261,6 @@ public class TriggerPoem : MonoBehaviour
         // Remove extra spaces
         text = System.Text.RegularExpressions.Regex.Replace(text, @"\s+", " ");
         return text;
-}
-
-    // void Update()
-    // {
-    //     if (isGazed && canAdvanceText && inputData.rightController.TryGetFeatureValue(CommonUsages.primaryButton, out bool Abutton))
-    //     {
-    //         if (!isStanzaDone && Abutton && !audioSource.isPlaying) {}
-    //         // StartCoroutine(ChangeText());
-    //     }
-    // }
-
-    // IEnumerator ChangeText()
-    // {
-    //     if (idx < lines.Length) {
-    //         textObject.text = lineText;
-    //         audioSource.clip = audioClips[idx];
-    //         audioSource.Play();
-    //         yield return new WaitForSeconds(audioSource.clip.length);
-
-
-    // private void OnTriggerEnter(Collider collision) {
-    //     if (collision.gameObject.tag == "PlayerBody" && isFirstTrigger) {
-    //         isFirstTrigger = false; // to prevent multiple triggers 
-    //         poemText.text = lines[0];
-    //         audioSource.clip = audioClips[idx];
-
-    //         basePoem.SetActive(true);
-    //         audioSource.Play(); // play sound as poem is enabled?
-    //     }
-    // }
+    }
 
 }

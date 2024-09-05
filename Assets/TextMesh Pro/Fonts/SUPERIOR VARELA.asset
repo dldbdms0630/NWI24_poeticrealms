@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: VarelaRound-Regular SDF Material
-  m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
+  m_Shader: {fileID: 4800000, guid: dd89cf5b9246416f84610a006f916af7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -120,9 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: SUPERIOR VARELA
   m_EditorClassIdentifier: 
-  hashCode: -1794847063
+  hashCode: -1419385512
   material: {fileID: -1090432560215196573}
-  materialHashCode: 1699882217
+  materialHashCode: 1036722808
   m_Version: 1.1.0
   m_SourceFontFileGUID: c0a89509fbe3f4d9ea640788c49cae78
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: c0a89509fbe3f4d9ea640788c49cae78, type: 3}

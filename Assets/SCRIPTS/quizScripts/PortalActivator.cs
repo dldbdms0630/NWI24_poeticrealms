@@ -2,9 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR;
 
 public class PortalActivator : MonoBehaviour
 {
+    public GameObject basePoem;
+    public GameObject[] lines;
+    public GameObject butterfly;
+    public GameObject doorFrame;
+    private TextMeshPro lineText;    
+        private int idx = 0;
+
+
     private int sceneNum;
     //public Animator fadeAnimator;
     public QuizActivator quizActivator;
@@ -12,15 +23,33 @@ public class PortalActivator : MonoBehaviour
     public GameObject fadenum2;
     private string sceneName;
     public AudioSource bgMusic;
+    private bool isGazed = false, canAdvanceText = true;
 
+    // public GameObject firstLine;
+    private InputData inputData;
+    private AudioSource audioSource; 
+
+
+    void Update()
+    {
+        if (isGazed && inputData.rightController.TryGetFeatureValue(CommonUsages.primaryButton, out bool Abutton)) {
+            if (Abutton && !audioSource.isPlaying && canAdvanceText) {
+                StartCoroutine(ChangeText());
+            }
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = basePoem.GetComponent<AudioSource>();
+
         sceneNum = -1;
         fadescreen.SetActive(false);
         sceneName = SceneManager.GetActiveScene().name;
         fadenum2.SetActive(false);
+        inputData = GetComponent<InputData>();
+
     }
 
     void OnTriggerEnter(Collider other)
@@ -42,8 +71,42 @@ public class PortalActivator : MonoBehaviour
         fadescreen.SetActive(true);
         yield return new WaitForSeconds(3);
         fadenum2.SetActive(true);
+        yield return new WaitForSeconds(1);
+
+        basePoem.SetActive(true);
+        doorFrame.SetActive(false);
+        butterfly.SetActive(false);
+
     }
 
+    IEnumerator ChangeText() {
+        canAdvanceText = false;
+
+        if (idx < lines.Length) {
+            audioSource = lines[idx].GetComponent<AudioSource>();
+            lines[idx].SetActive(true);
+            
+            lineText = lines[idx].GetComponent<TextMeshPro>();
+            
+            yield return new WaitForSeconds(audioSource.clip.length);
+
+            if (lineText.text == "Alone, I whisper,") {
+                yield return new WaitForSeconds(1);
+            } else if (lineText.text == "it's all your fault.") {
+                 yield return new WaitForSeconds(1);
+            } else if (lineText.text == "No, scratch that—") {
+                yield return new WaitForSeconds(1);
+            }
+            // } else if (lineText.text == "it's all you.") {
+            
+            //     // FadeBgMusic();
+            // }
+            idx++;
+        }
+        yield return new WaitForSeconds(0.5f); // Debounce delay
+
+        canAdvanceText = true; // Allow next trigger
+    }
 
     private IEnumerator LoadPoemScene()
     {
@@ -75,5 +138,15 @@ public class PortalActivator : MonoBehaviour
         {
             Debug.Log("something went wrong homie, heres scenenum: " + sceneNum);
         }
+    }
+
+    public void EnableGaze() 
+    {
+        isGazed = true;
+    }
+
+    public void DisableGaze() 
+    {
+        isGazed = false;
     }
 }
