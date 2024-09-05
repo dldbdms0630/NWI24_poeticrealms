@@ -3230,7 +3230,7 @@ MonoBehaviour:
   - {fileID: 1056014109}
   - {fileID: 358293609}
   nurtObjManager: {fileID: 0}
-  fsObjManager: {fileID: 0}
+  fsObjManager: {fileID: 722598637}
 --- !u!1 &358293609
 GameObject:
   m_ObjectHideFlags: 0
@@ -3642,15 +3642,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: bf1b95fba89fb2e438e098ef4361e389, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -111.211
+      value: -103.56218
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: bf1b95fba89fb2e438e098ef4361e389, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -306.1
+      value: -257.85797
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: bf1b95fba89fb2e438e098ef4361e389, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 132.823
+      value: 115.38185
       objectReference: {fileID: 0}
     - target: {fileID: 400032, guid: bf1b95fba89fb2e438e098ef4361e389, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3666,27 +3666,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400036, guid: bf1b95fba89fb2e438e098ef4361e389, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 40
+      value: -60.00004
       objectReference: {fileID: 0}
     - target: {fileID: 400036, guid: bf1b95fba89fb2e438e098ef4361e389, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -19.999908
       objectReference: {fileID: 0}
     - target: {fileID: 400036, guid: bf1b95fba89fb2e438e098ef4361e389, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -90
+      value: -90.00011
       objectReference: {fileID: 0}
     - target: {fileID: 400044, guid: bf1b95fba89fb2e438e098ef4361e389, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -40
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 400044, guid: bf1b95fba89fb2e438e098ef4361e389, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -14.999981
       objectReference: {fileID: 0}
     - target: {fileID: 400044, guid: bf1b95fba89fb2e438e098ef4361e389, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -90
+      value: -89.99998
       objectReference: {fileID: 0}
     - target: {fileID: 11100000, guid: bf1b95fba89fb2e438e098ef4361e389, type: 3}
       propertyPath: m_Animation
@@ -3698,7 +3698,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11100000, guid: bf1b95fba89fb2e438e098ef4361e389, type: 3}
       propertyPath: m_Animations.Array.size
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11100000, guid: bf1b95fba89fb2e438e098ef4361e389, type: 3}
       propertyPath: m_Animations.Array.data[0]
@@ -3723,15 +3723,23 @@ PrefabInstance:
     - target: {fileID: 11100000, guid: bf1b95fba89fb2e438e098ef4361e389, type: 3}
       propertyPath: m_Animations.Array.data[5]
       value: 
-      objectReference: {fileID: 7400000, guid: d402b933316434838822de038af9af75, type: 2}
+      objectReference: {fileID: 7400000, guid: 1d633407ffded4acaa053decaeb39cef, type: 2}
     - target: {fileID: 11100000, guid: bf1b95fba89fb2e438e098ef4361e389, type: 3}
       propertyPath: m_Animations.Array.data[6]
       value: 
-      objectReference: {fileID: 7400000, guid: ac616accc4e5241aca79373c3a414d3e, type: 2}
+      objectReference: {fileID: 7400000, guid: 3a9154bea56c14cc9b8d3619d40731be, type: 2}
     - target: {fileID: 11100000, guid: bf1b95fba89fb2e438e098ef4361e389, type: 3}
       propertyPath: m_Animations.Array.data[7]
       value: 
-      objectReference: {fileID: 7400000, guid: ac616accc4e5241aca79373c3a414d3e, type: 2}
+      objectReference: {fileID: 7400000, guid: 747d00952717546edab9a91788849d5d, type: 2}
+    - target: {fileID: 11100000, guid: bf1b95fba89fb2e438e098ef4361e389, type: 3}
+      propertyPath: m_Animations.Array.data[8]
+      value: 
+      objectReference: {fileID: 7400000, guid: 3c3b3db7f7c62400a84f16c495f19555, type: 2}
+    - target: {fileID: 11100000, guid: bf1b95fba89fb2e438e098ef4361e389, type: 3}
+      propertyPath: m_Animations.Array.data[9]
+      value: 
+      objectReference: {fileID: 7400000, guid: 60534c945ae5f49b3b5cf0bf4a523597, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17094,7 +17102,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 682399584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 71.951706}
+  m_LocalPosition: {x: 0, y: 0, z: 79.0887}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17102,7 +17110,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 75.63219, y: 2.299}
+  m_AnchoredPosition: {x: 51.27819, y: 2.31}
   m_SizeDelta: {x: 1, y: 0.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &682399586
@@ -22600,7 +22608,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806252764}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 71.951996}
+  m_LocalPosition: {x: 0, y: 0, z: 79.08899}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22608,7 +22616,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 76.27272, y: 2.3453}
+  m_AnchoredPosition: {x: 51.918724, y: 2.3562999}
   m_SizeDelta: {x: 1, y: 0.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &806252766
@@ -27673,7 +27681,7 @@ MonoBehaviour:
   - {fileID: 1661926355}
   - {fileID: 1404238047}
   nurtObjManager: {fileID: 0}
-  fsObjManager: {fileID: 0}
+  fsObjManager: {fileID: 722598637}
 --- !u!1001 &1153700862
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28011,6 +28019,7 @@ GameObject:
   - component: {fileID: 1165993305}
   - component: {fileID: 1165993304}
   - component: {fileID: 1165993303}
+  - component: {fileID: 1165993307}
   m_Layer: 0
   m_Name: backing portal
   m_TagString: FinalPortal
@@ -28045,6 +28054,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cce2cf458ea19f49b1276393e9aa694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basePoem: {fileID: 2004449461}
+  lines:
+  - {fileID: 806252764}
+  - {fileID: 682399584}
+  - {fileID: 1913526119}
+  - {fileID: 2009468630}
   quizActivator: {fileID: 0}
   fadescreen: {fileID: 412973485}
   fadenum2: {fileID: 207956714}
@@ -28121,6 +28136,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1165993301}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1165993307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165993301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddca5a9ce6dfa084c89c4e10a5bad472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1273286169
 GameObject:
   m_ObjectHideFlags: 0
@@ -36451,7 +36478,7 @@ MonoBehaviour:
   - {fileID: 1864650552}
   - {fileID: 1392644299}
   nurtObjManager: {fileID: 0}
-  fsObjManager: {fileID: 0}
+  fsObjManager: {fileID: 722598637}
 --- !u!114 &1646361980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36693,7 +36720,7 @@ MonoBehaviour:
   - {fileID: 1504212541}
   - {fileID: 1513030781}
   nurtObjManager: {fileID: 0}
-  fsObjManager: {fileID: 0}
+  fsObjManager: {fileID: 722598637}
 --- !u!114 &1653292569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37275,7 +37302,7 @@ MonoBehaviour:
   lines:
   - {fileID: 1399133034}
   nurtObjManager: {fileID: 0}
-  fsObjManager: {fileID: 0}
+  fsObjManager: {fileID: 722598637}
 --- !u!114 &1701211085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38129,7 +38156,7 @@ MonoBehaviour:
   - {fileID: 186260369}
   - {fileID: 890641374}
   nurtObjManager: {fileID: 0}
-  fsObjManager: {fileID: 0}
+  fsObjManager: {fileID: 722598637}
 --- !u!135 &1818320410
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -44253,7 +44280,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913526119}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 71.944305}
+  m_LocalPosition: {x: 0, y: 0, z: 79.0813}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44261,7 +44288,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 76.140564, y: 2.297}
+  m_AnchoredPosition: {x: 51.786568, y: 2.308}
   m_SizeDelta: {x: 1, y: 0.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1913526121
@@ -44919,7 +44946,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004449461}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 71.957}
+  m_LocalPosition: {x: 0, y: 0, z: 79.094}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44927,7 +44954,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 75.729, y: 2.366}
+  m_AnchoredPosition: {x: 51.375, y: 2.377}
   m_SizeDelta: {x: 1, y: 0.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2004449463
@@ -44947,8 +44974,8 @@ MonoBehaviour:
   OnGazeEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1157332346}
-        m_TargetAssemblyTypeName: TriggerPoem, Assembly-CSharp
+      - m_Target: {fileID: 1165993303}
+        m_TargetAssemblyTypeName: PortalActivator, Assembly-CSharp
         m_MethodName: EnableGaze
         m_Mode: 1
         m_Arguments:
@@ -44962,8 +44989,8 @@ MonoBehaviour:
   OnGazeStay:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1157332346}
-        m_TargetAssemblyTypeName: TriggerPoem, Assembly-CSharp
+      - m_Target: {fileID: 1165993303}
+        m_TargetAssemblyTypeName: PortalActivator, Assembly-CSharp
         m_MethodName: EnableGaze
         m_Mode: 1
         m_Arguments:
@@ -44977,8 +45004,8 @@ MonoBehaviour:
   OnGazeExit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1157332346}
-        m_TargetAssemblyTypeName: TriggerPoem, Assembly-CSharp
+      - m_Target: {fileID: 1165993303}
+        m_TargetAssemblyTypeName: PortalActivator, Assembly-CSharp
         m_MethodName: DisableGaze
         m_Mode: 1
         m_Arguments:
@@ -45409,7 +45436,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2009468630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 71.944305}
+  m_LocalPosition: {x: 0, y: 0, z: 79.0813}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45417,7 +45444,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 75.950195, y: 2.251}
+  m_AnchoredPosition: {x: 51.5962, y: 2.262}
   m_SizeDelta: {x: 1, y: 0.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &2009468632

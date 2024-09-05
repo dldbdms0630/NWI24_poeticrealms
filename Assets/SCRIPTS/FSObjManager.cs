@@ -104,7 +104,7 @@ public class FSObjManager : MonoBehaviour
     {
         anim.Play("toDoor");
         yield return new WaitForSeconds(toDoorClip.length); // Wait for the toDoor animation to finish
-        anim.Play("circleDoor");
+        anim.Play("doorCircle");
     }
 
 
